@@ -1,4 +1,4 @@
-import type { Preview, Decorator } from '@storybook/react';
+import type { Preview, Decorator } from '@storybook/react-vite';
 import React from 'react';
 import { OverlayProvider } from 'react-aria';
 import '../lib/main.css';

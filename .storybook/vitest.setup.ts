@@ -1,5 +1,5 @@
 import { beforeAll } from 'vitest';
-import { setProjectAnnotations } from '@storybook/react';
+import { setProjectAnnotations } from '@storybook/react-vite';
 import * as projectAnnotations from './preview';
 import React from 'react';
 import { OverlayProvider } from 'react-aria';
@@ -10,10 +10,16 @@ const reactAriaDecorator = Story => {
   return React.createElement(OverlayProvider, null, React.createElement(Story, null));
 };
 
+// Función helper para asegurar que decorators sea siempre un array
+const ensureArray = value => {
+  if (!value) return [];
+  return Array.isArray(value) ? value : [value];
+};
+
 // Combinar los decoradores con las anotaciones existentes
 const combinedAnnotations = {
   ...projectAnnotations.default,
-  decorators: [...(projectAnnotations.default.decorators || []), reactAriaDecorator],
+  decorators: [...ensureArray(projectAnnotations.default.decorators), reactAriaDecorator],
 };
 
 // This is an important step to apply the right configuration when testing your stories.

@@ -141,8 +141,8 @@ test('renderiza los tamaños correctamente', () => {
     </>
   );
   expect(getByTestId('button-small')).toHaveClass('h-[30px]', 'px-3', 'text-sm', 'font-medium');
-  expect(getByTestId('button-medium')).toHaveClass('h-[40px]', 'px-4', 'text-sm', 'font-medium');
-  expect(getByTestId('button-large')).toHaveClass('h-[50px]', 'px-5', 'text-sm', 'font-medium');
+  expect(getByTestId('button-medium')).toHaveClass('h-[40px]', 'px-4', 'text-md', 'font-medium');
+  expect(getByTestId('button-large')).toHaveClass('h-[50px]', 'px-5', 'text-lg', 'font-medium');
 });
 
 test('renderiza el botón block correctamente', () => {

@@ -1,6 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './Button';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
+import { expect, userEvent } from '@storybook/test';
+import { within } from '@storybook/test';
+import { vi } from 'vitest';
 
 const meta = {
   component: Button,
@@ -8,7 +11,7 @@ const meta = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Un botón accesible y reutilizable con múltiples variantes y estados.',
+        component: 'An accessible and reusable button with multiple variants and states.',
       },
     },
   },
@@ -16,29 +19,29 @@ const meta = {
     variant: {
       control: 'select',
       options: ['primary', 'secondary', 'info', 'success', 'warning', 'danger'],
-      description: 'Define el estilo visual del botón',
+      description: 'Defines the visual style of the button',
     },
     mode: {
       control: 'radio',
       options: ['filled', 'outlined', 'flat'],
-      description: 'Define el modo de visualización del botón',
+      description: 'Defines the display mode of the button',
     },
     isDisabled: {
       control: 'boolean',
-      description: 'Controla si el botón está deshabilitado',
+      description: 'Controls whether the button is disabled',
     },
     children: {
       control: 'text',
-      description: 'Contenido del botón',
+      description: 'Button content',
     },
     onPress: {
       action: 'pressed',
-      description: 'Función llamada cuando se presiona el botón',
+      description: 'Function called when the button is pressed',
     },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
-      description: 'Define el tamaño del botón',
+      description: 'Defines the size of the button',
     },
   },
   tags: ['autodocs'],
@@ -49,16 +52,22 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
-    children: 'Button',
+    children: 'Primary',
     variant: 'primary',
     mode: 'filled',
     onPress: action('primary-clicked'),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: 'Primary' });
+    expect(button).toBeInTheDocument();
+    await userEvent.click(button);
   },
 };
 
 export const Secondary: Story = {
   args: {
-    children: 'Button',
+    children: 'Secondary',
     variant: 'secondary',
     mode: 'filled',
     onPress: action('secondary-clicked'),
@@ -67,7 +76,7 @@ export const Secondary: Story = {
 
 export const Info: Story = {
   args: {
-    children: 'Button',
+    children: 'Info',
     variant: 'info',
     mode: 'filled',
     onPress: action('info-clicked'),
@@ -76,7 +85,7 @@ export const Info: Story = {
 
 export const Success: Story = {
   args: {
-    children: 'Button',
+    children: 'Success',
     variant: 'success',
     mode: 'filled',
     onPress: action('success-clicked'),
@@ -85,7 +94,7 @@ export const Success: Story = {
 
 export const Warning: Story = {
   args: {
-    children: 'Button',
+    children: 'Warning',
     variant: 'warning',
     mode: 'filled',
     onPress: action('warning-clicked'),
@@ -94,7 +103,7 @@ export const Warning: Story = {
 
 export const Danger: Story = {
   args: {
-    children: 'Button',
+    children: 'Danger',
     variant: 'danger',
     mode: 'filled',
     onPress: action('danger-clicked'),
@@ -103,7 +112,7 @@ export const Danger: Story = {
 
 export const Outlined: Story = {
   args: {
-    children: 'Button',
+    children: 'Outlined',
     variant: 'primary',
     mode: 'outlined',
     onPress: action('outlined-clicked'),
@@ -112,7 +121,7 @@ export const Outlined: Story = {
 
 export const Flat: Story = {
   args: {
-    children: 'Button',
+    children: 'Flat',
     variant: 'primary',
     mode: 'flat',
     onPress: action('flat-clicked'),
@@ -121,7 +130,7 @@ export const Flat: Story = {
 
 export const Disabled: Story = {
   args: {
-    children: 'Button',
+    children: 'Disabled',
     variant: 'primary',
     mode: 'filled',
     isDisabled: true,
