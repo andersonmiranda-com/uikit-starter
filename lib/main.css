@@ -1,7 +1,8 @@
 @import 'tailwindcss';
 @plugin 'tailwindcss-react-aria-components';
 
-@theme {
+@theme static {
+  /* Colors */
   --color-primary-100: #e8f0ff;
   --color-primary-200: #aeccff;
   --color-primary-300: #74aaff;
@@ -74,4 +75,83 @@
   --color-error-700: #a60000;
   --color-error-800: #790005;
   --color-error-900: #4d000a;
+
+  /* Text Sizes Desktop */
+  --text-h1: 48px;
+  --text-h1--line-height: 72px;
+  --text-h2: 40px;
+  --text-h2--line-height: 60px;
+  --text-h3: 32px;
+  --text-h3--line-height: 48px;
+  --text-h4: 24px;
+  --text-h4--line-height: 36px;
+  --text-subtitle1: 20px;
+  --text-subtitle1--line-height: 26px;
+  --text-subtitle2: 18px;
+  --text-subtitle2--line-height: 27px;
+  --text-subtitle3: 14px;
+  --text-subtitle3--line-height: 16px;
+  --text-body1: 16px;
+  --text-body1--line-height: 24px;
+  --text-body2: 14px;
+  --text-body2--line-height: 20px;
+  --text-link1: 16px;
+  --text-link1--line-height: 24px;
+  --text-link2: 14px;
+  --text-link2--line-height: 20px;
+  --text-link3: 12px;
+  --text-link3--line-height: 16px;
+  --text-caption: 12px;
+  --text-caption--line-height: 16px;
+  --text-caption2: 10px;
+  --text-caption2--line-height: 12px;
+
+  /* Text Sizes Mobile */
+  --text-h1-mobile: 40px;
+  --text-h1-mobile--line-height: 48px;
+  --text-h2-mobile: 36px;
+  --text-h2-mobile--line-height: 44px;
+  --text-h3-mobile: 32px;
+  --text-h3-mobile--line-height: 40px;
+  --text-h4-mobile: 22px;
+  --text-h4-mobile--line-height: 30px;
+  --text-subtitle1-mobile: 18px;
+  --text-subtitle1-mobile--line-height: 24px;
+  --text-subtitle2-mobile: 16px;
+  --text-subtitle2-mobile--line-height: 20px;
+  --text-subtitle3-mobile: 12px;
+  --text-subtitle3-mobile--line-height: 14px;
+  --text-body1-mobile: 14px;
+  --text-body1-mobile--line-height: 20px;
+  --text-body2-mobile: 12px;
+  --text-body2-mobile--line-height: 16px;
+  --text-link1-mobile: 14px;
+  --text-link1-mobile--line-height: 20px;
+  --text-link2-mobile: 12px;
+  --text-link2-mobile--line-height: 16px;
+  --text-link3-mobile: 12px;
+  --text-link3-mobile--line-height: 16px;
+  --text-caption-mobile: 12px;
+  --text-caption-mobile--line-height: 14px;
+  --text-caption2-mobile: 10px;
+  --text-caption2-mobile--line-height: 12px;
+
+  /* Font Weights */
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* Breakpoints */
+  --breakpoint-mobile: 0px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-tablet_w: 1024px;
+  --breakpoint-desktop_sm: 1280px;
+  --breakpoint-desktop: 1440px;
 }

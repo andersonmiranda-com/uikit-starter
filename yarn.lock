@@ -6046,10 +6046,15 @@ tailwindcss-react-aria-components@^2.0.0:
   resolved "https://registry.yarnpkg.com/tailwindcss-react-aria-components/-/tailwindcss-react-aria-components-2.0.0.tgz#25d5d0a4edf5718112dda055a968f48b2a7dd29a"
   integrity sha512-l8YdpXX//qx0Mz2bW3YKLjboTQxR3zLrFhlHniAIn+mTwVM1yvT0Jp7Pn3eFrqi+qtOMmcJzXaF2rsKezSr0SQ==
 
-tailwindcss@4.0.17, tailwindcss@^4.0.17:
+tailwindcss@4.0.17:
   version "4.0.17"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-4.0.17.tgz#44332e28d4213385727b6199e07ab296d8bdfa42"
   integrity sha512-OErSiGzRa6rLiOvaipsDZvLMSpsBZ4ysB4f0VKGXUrjw2jfkJRd6kjRKV2+ZmTCNvwtvgdDam5D7w6WXsdLJZw==
+
+tailwindcss@^4.1.8:
+  version "4.1.8"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-4.1.8.tgz#5d66d095ee7d82f03d6dbc6158bc248e064a5c05"
+  integrity sha512-kjeW8gjdxasbmFKpVGrGd5T4i40mV5J2Rasw48QARfYeQ8YS9x02ON9SFWax3Qf616rt4Cp3nVNIj6Hd1mP3og==
 
 tapable@^2.2.0:
   version "2.2.1"
