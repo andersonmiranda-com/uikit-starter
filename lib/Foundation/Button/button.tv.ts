@@ -1,7 +1,14 @@
 import { tv } from 'tailwind-variants';
 
 export type ButtonSize = 'small' | 'medium' | 'large';
-export type ButtonVariant = 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'danger';
+export type ButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'error';
 export type ButtonMode = 'filled' | 'outlined' | 'flat';
 
 export const button = tv({
@@ -15,10 +22,11 @@ export const button = tv({
     variant: {
       primary: '',
       secondary: '',
+      tertiary: '',
       info: '',
       success: '',
       warning: '',
-      danger: '',
+      error: '',
     },
     mode: {
       filled: '',
@@ -40,114 +48,133 @@ export const button = tv({
       variant: 'primary',
       mode: 'filled',
       class:
-        'bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-600 active:bg-indigo-800 disabled:cursor-not-allowed disabled:bg-indigo-300 disabled:text-white',
+        'bg-primary-500 hover:bg-primary-600 focus:ring-primary-500 active:bg-primary-700 disabled:bg-primary-300 text-white disabled:cursor-not-allowed disabled:text-white',
     },
     {
       variant: 'primary',
       mode: 'outlined',
       class:
-        'border border-indigo-600 text-indigo-600 hover:bg-indigo-700 hover:text-white focus:ring-indigo-600 active:bg-indigo-800 active:text-white disabled:cursor-not-allowed disabled:border-indigo-300 disabled:text-indigo-300',
+        'border-primary-500 text-primary-500 hover:bg-primary-600 focus:ring-primary-500 active:bg-primary-700 disabled:border-primary-300 disabled:text-primary-300 border hover:text-white active:text-white disabled:cursor-not-allowed',
     },
     {
       variant: 'primary',
       mode: 'flat',
       class:
-        'text-indigo-600 hover:bg-indigo-700 hover:text-white focus:ring-indigo-600 active:bg-indigo-800 active:text-white disabled:cursor-not-allowed disabled:text-indigo-300',
+        'text-primary-500 hover:bg-primary-600 focus:ring-primary-500 active:bg-primary-700 disabled:text-primary-300 hover:text-white active:text-white disabled:cursor-not-allowed',
     },
     // SECONDARY
     {
       variant: 'secondary',
       mode: 'filled',
       class:
-        'border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 focus:ring-gray-300 active:bg-gray-200 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-100 disabled:text-gray-400',
+        'bg-secondary-500 hover:bg-secondary-600 focus:ring-secondary-500 active:bg-secondary-700 disabled:bg-secondary-300 text-white disabled:cursor-not-allowed disabled:text-white',
     },
     {
       variant: 'secondary',
       mode: 'outlined',
       class:
-        'border border-gray-300 text-gray-700 hover:bg-gray-100 focus:ring-gray-300 active:bg-gray-200 disabled:cursor-not-allowed disabled:border-gray-200 disabled:text-gray-400',
+        'border-secondary-500 text-secondary-500 hover:bg-secondary-100 focus:ring-secondary-500 active:bg-secondary-200 disabled:border-secondary-200 disabled:text-secondary-400 border disabled:cursor-not-allowed',
     },
     {
       variant: 'secondary',
       mode: 'flat',
       class:
-        'text-gray-700 hover:bg-gray-100 focus:ring-gray-300 active:bg-gray-200 disabled:cursor-not-allowed disabled:text-gray-400',
+        'text-secondary-500 hover:bg-secondary-100 focus:ring-secondary-500 active:bg-secondary-200 disabled:text-secondary-400 disabled:cursor-not-allowed',
+    },
+    // TERTIARY
+    {
+      variant: 'tertiary',
+      mode: 'filled',
+      class:
+        'bg-tertiary-500 hover:bg-tertiary-600 focus:ring-tertiary-500 active:bg-tertiary-700 disabled:bg-tertiary-300 text-white disabled:cursor-not-allowed disabled:text-white',
+    },
+    {
+      variant: 'tertiary',
+      mode: 'outlined',
+      class:
+        'border-tertiary-500 text-tertiary-500 hover:bg-tertiary-600 focus:ring-tertiary-500 active:bg-tertiary-700 disabled:border-tertiary-300 disabled:text-tertiary-300 border hover:text-white active:text-white disabled:cursor-not-allowed',
+    },
+    {
+      variant: 'tertiary',
+      mode: 'flat',
+      class:
+        'text-tertiary-500 hover:bg-tertiary-600 focus:ring-tertiary-500 active:bg-tertiary-700 disabled:text-tertiary-300 hover:text-white active:text-white disabled:cursor-not-allowed',
     },
     // INFO
     {
       variant: 'info',
       mode: 'filled',
       class:
-        'bg-cyan-700 text-white hover:bg-cyan-800 focus:ring-cyan-700 active:bg-cyan-900 disabled:cursor-not-allowed disabled:bg-cyan-300 disabled:text-white',
+        'bg-info-500 hover:bg-info-600 focus:ring-info-500 active:bg-info-700 disabled:bg-info-300 text-white disabled:cursor-not-allowed disabled:text-white',
     },
     {
       variant: 'info',
       mode: 'outlined',
       class:
-        'border border-cyan-700 text-cyan-700 hover:bg-cyan-800 hover:text-white focus:ring-cyan-700 active:bg-cyan-900 active:text-white disabled:cursor-not-allowed disabled:border-cyan-300 disabled:text-cyan-300',
+        'border-info-500 text-info-500 hover:bg-info-600 focus:ring-info-500 active:bg-info-700 disabled:border-info-300 disabled:text-info-300 border hover:text-white active:text-white disabled:cursor-not-allowed',
     },
     {
       variant: 'info',
       mode: 'flat',
       class:
-        'text-cyan-700 hover:bg-cyan-800 hover:text-white focus:ring-cyan-700 active:bg-cyan-900 active:text-white disabled:cursor-not-allowed disabled:text-cyan-300',
+        'text-info-500 hover:bg-info-600 focus:ring-info-500 active:bg-info-700 disabled:text-info-300 hover:text-white active:text-white disabled:cursor-not-allowed',
     },
     // SUCCESS
     {
       variant: 'success',
       mode: 'filled',
       class:
-        'bg-green-700 text-white hover:bg-green-800 focus:ring-green-700 active:bg-green-900 disabled:cursor-not-allowed disabled:bg-green-300 disabled:text-white',
+        'bg-success-500 hover:bg-success-600 focus:ring-success-500 active:bg-success-700 disabled:bg-success-300 text-white disabled:cursor-not-allowed disabled:text-white',
     },
     {
       variant: 'success',
       mode: 'outlined',
       class:
-        'border border-green-700 text-green-700 hover:bg-green-800 hover:text-white focus:ring-green-700 active:bg-green-900 active:text-white disabled:cursor-not-allowed disabled:border-green-300 disabled:text-green-300',
+        'border-success-500 text-success-500 hover:bg-success-600 focus:ring-success-500 active:bg-success-700 disabled:border-success-300 disabled:text-success-300 border hover:text-white active:text-white disabled:cursor-not-allowed',
     },
     {
       variant: 'success',
       mode: 'flat',
       class:
-        'text-green-700 hover:bg-green-800 hover:text-white focus:ring-green-700 active:bg-green-900 active:text-white disabled:cursor-not-allowed disabled:text-green-300',
+        'text-success-500 hover:bg-success-600 focus:ring-success-500 active:bg-success-700 disabled:text-success-300 hover:text-white active:text-white disabled:cursor-not-allowed',
     },
     // WARNING
     {
       variant: 'warning',
       mode: 'filled',
       class:
-        'bg-orange-700 text-white hover:bg-orange-800 focus:ring-orange-700 active:bg-orange-900 disabled:cursor-not-allowed disabled:bg-orange-300 disabled:text-white',
+        'bg-warning-500 hover:bg-warning-600 focus:ring-warning-500 active:bg-warning-700 disabled:bg-warning-300 text-white disabled:cursor-not-allowed disabled:text-white',
     },
     {
       variant: 'warning',
       mode: 'outlined',
       class:
-        'border border-orange-700 text-orange-700 hover:bg-orange-800 hover:text-white focus:ring-orange-700 active:bg-orange-900 active:text-white disabled:cursor-not-allowed disabled:border-orange-300 disabled:text-orange-300',
+        'border-warning-500 text-warning-500 hover:bg-warning-600 focus:ring-warning-500 active:bg-warning-700 disabled:border-warning-300 disabled:text-warning-300 border hover:text-white active:text-white disabled:cursor-not-allowed',
     },
     {
       variant: 'warning',
       mode: 'flat',
       class:
-        'text-orange-700 hover:bg-orange-800 hover:text-white focus:ring-orange-700 active:bg-orange-900 active:text-white disabled:cursor-not-allowed disabled:text-orange-300',
+        'text-warning-500 hover:bg-warning-600 focus:ring-warning-500 active:bg-warning-700 disabled:text-warning-300 hover:text-white active:text-white disabled:cursor-not-allowed',
     },
-    // DANGER
+    // ERROR
     {
-      variant: 'danger',
+      variant: 'error',
       mode: 'filled',
       class:
-        'bg-red-600 text-white hover:bg-red-700 focus:ring-red-600 active:bg-red-800 disabled:cursor-not-allowed disabled:bg-red-300 disabled:text-white',
+        'bg-error-500 hover:bg-error-600 focus:ring-error-500 active:bg-error-700 disabled:bg-error-300 text-white disabled:cursor-not-allowed disabled:text-white',
     },
     {
-      variant: 'danger',
+      variant: 'error',
       mode: 'outlined',
       class:
-        'border border-red-600 text-red-600 hover:bg-red-700 hover:text-white focus:ring-red-600 active:bg-red-800 active:text-white disabled:cursor-not-allowed disabled:border-red-300 disabled:text-red-300',
+        'border-error-500 text-error-500 hover:bg-error-600 focus:ring-error-500 active:bg-error-700 disabled:border-error-300 disabled:text-error-300 border hover:text-white active:text-white disabled:cursor-not-allowed',
     },
     {
-      variant: 'danger',
+      variant: 'error',
       mode: 'flat',
       class:
-        'text-red-600 hover:bg-red-700 hover:text-white focus:ring-red-600 active:bg-red-800 active:text-white disabled:cursor-not-allowed disabled:text-red-300',
+        'text-error-500 hover:bg-error-600 focus:ring-error-500 active:bg-error-700 disabled:text-error-300 hover:text-white active:text-white disabled:cursor-not-allowed',
     },
   ],
   defaultVariants: {

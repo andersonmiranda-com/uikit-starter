@@ -3,7 +3,6 @@ import { Button } from './Button';
 import { action } from 'storybook/actions';
 import { expect, userEvent } from '@storybook/test';
 import { within } from '@storybook/test';
-import { vi } from 'vitest';
 
 const meta = {
   component: Button,
@@ -18,7 +17,7 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'info', 'success', 'warning', 'danger'],
+      options: ['primary', 'secondary', 'tertiary', 'info', 'success', 'warning', 'error'],
       description: 'Defines the visual style of the button',
     },
     mode: {
@@ -74,6 +73,15 @@ export const Secondary: Story = {
   },
 };
 
+export const Tertiary: Story = {
+  args: {
+    children: 'Tertiary',
+    variant: 'tertiary',
+    mode: 'filled',
+    onPress: action('tertiary-clicked'),
+  },
+};
+
 export const Info: Story = {
   args: {
     children: 'Info',
@@ -101,12 +109,12 @@ export const Warning: Story = {
   },
 };
 
-export const Danger: Story = {
+export const Error: Story = {
   args: {
-    children: 'Danger',
-    variant: 'danger',
+    children: 'Error',
+    variant: 'error',
     mode: 'filled',
-    onPress: action('danger-clicked'),
+    onPress: action('error-clicked'),
   },
 };
 
