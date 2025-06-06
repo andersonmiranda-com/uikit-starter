@@ -26,7 +26,7 @@ export const Text: FC<TextProps> = ({
   fixed = false,
   children,
   className,
-  dataTestId = 'paris-text',
+  dataTestId = 'text-component',
   ...props
 }) => {
   const Element = element ?? variantToElementMap[variant];

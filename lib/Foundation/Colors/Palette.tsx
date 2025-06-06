@@ -49,7 +49,7 @@ const Palette: FC = () => {
 
   return (
     <>
-      <h2>Tonos escalonados</h2>
+      <h2>Toned</h2>
       <ColorPalette>
         {toneGroup.map((group, index) => (
           <ColorItem
@@ -61,7 +61,7 @@ const Palette: FC = () => {
         ))}
       </ColorPalette>
 
-      <h2>Tonos personalizados</h2>
+      <h2>Custom</h2>
       <ColorPalette>
         {customGroup.map((group, index) => (
           <ColorItem
