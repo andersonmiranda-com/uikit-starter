@@ -1,0 +1,100 @@
+---
+description: UI Kit rules for the e-commerce project
+globs:
+  - lib/**/*.{ts,tsx}
+alwaysApply: true
+---
+
+# Rules for the UI Kit Project
+
+## File Structure
+
+- Components must be in the `lib/` directory
+- Each component must have its own folder and include:
+  - The component file
+  - A story file
+  - A unit test file
+
+## Naming Conventions
+
+- Components should use PascalCase (e.g., Button.tsx)
+- Story files should follow the pattern ComponentName.stories.tsx
+- Interfaces should use PascalCase and start with 'I' (e.g., IButtonProps)
+- Variables and functions should use camelCase
+
+## React Components
+
+- Keep components functional and small
+- Define TypeScript types for all props
+- Document important props using JSDoc
+- For more complex components, create partials in a `partials/` sub-directory
+- Use forwardRef for components that require refs
+
+## React Aria
+
+- Use React Aria Components (RAC) as the base for components (e.g., use RACButton as the base for Button)
+- Extend React Aria prop interfaces (e.g., ButtonProps extends RACButtonProps)
+- Use composeRenderProps to combine custom classes with React Aria states
+- Spread all props into the base React Aria component
+- Leverage renderProps states like isPressed, isFocused, etc.
+- Name imported React Aria components with the RAC prefix for clarity (e.g., Button as RACButton)
+- Follow the implementation guides for each React Aria component
+- Use React Aria hooks to implement accessible behaviors when needed
+- Import React Aria components and hooks selectively to optimize bundle size
+
+## Styling
+
+- Use Tailwind CSS for styling
+- Keep Tailwind classes organized and reusable
+- Use tailwind-variants (tv) to manage component states and variants
+- Define custom variants that complement React Aria functionality
+- Use utilities like focusRing for a consistent user experience
+- Provide default variant values using defaultVariants in tv()
+- Avoid inline styles
+
+## Testing
+
+- Write unit tests for components
+- Test files should follow the pattern ComponentName.spec.tsx
+- Use Vitest for testing
+- Maintain good test coverage
+
+## Documentation
+
+- Document important props with JSDoc
+- Keep README.md up to date
+- Provide usage examples in Storybook stories
+
+## Git
+
+- Make atomic commits
+- Use descriptive commit messages
+- Keep .gitignore updated
+
+## TypeScript
+
+- Use strict types
+- Avoid `any`
+- Define interfaces for all props
+- Use type inference when possible
+
+## Accessibility
+
+- Include ARIA attributes when needed
+- Ensure proper color contrast
+- Ensure components are keyboard-navigable
+
+## Performance
+
+- Avoid unnecessary re-renders
+- Use React.memo when appropriate
+- Optimize imports
+
+## Dependencies
+
+- Use yarn to install dependencies
+- Keep React Aria dependencies up to date
+
+## Implementations
+
+- Implementations must pass linting
