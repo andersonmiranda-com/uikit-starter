@@ -76,6 +76,14 @@
   --color-error-800: #790005;
   --color-error-900: #4d000a;
 
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-focus: #ffc12d;
+  --color-transparent: 'rgb(0 0 0 / 0)';
+
+  /* Fonts */
+  --font-sans: 'Montserrat', sans-serif;
+
   /* Text Sizes Desktop */
   --text-h1: 48px;
   --text-h1--line-height: 72px;
