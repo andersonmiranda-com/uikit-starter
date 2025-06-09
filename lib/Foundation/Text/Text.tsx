@@ -1,10 +1,13 @@
 import { createElement, type FC, type HTMLProps, type ReactNode } from 'react';
 import { text, TextVariant, TextWeight, ElementType, variantToElementMap } from './text.tv';
+import { ColorKey } from '../../utils/types/Colors.type';
+import { twMerge } from 'tailwind-merge';
 
 interface TextProps extends HTMLProps<HTMLElement> {
   variant?: TextVariant;
   weight?: TextWeight;
   element?: ElementType;
+  color?: ColorKey;
   /**
    * If true, the text will have a monospaced font.
    */
@@ -22,6 +25,7 @@ export const Text: FC<TextProps> = ({
   variant = 'body1',
   weight = 400,
   element,
+  color,
   monospaced = false,
   fixed = false,
   children,
@@ -43,7 +47,7 @@ export const Text: FC<TextProps> = ({
     Element,
     {
       'data-testid': dataTestId,
-      className: classes,
+      className: twMerge(classes, `text-${color}`),
       ...props,
     },
     children

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Text } from './Text';
+import { colorKeys } from '../../utils/types/Colors.type';
 
 const meta = {
   component: Text,
@@ -53,6 +54,12 @@ const meta = {
       options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'a', 'span', 'div', 'button', 'label'],
       description: 'Allows forcing the HTML element type',
       table: { type: { summary: 'string' } },
+    },
+    color: {
+      control: 'select',
+      options: colorKeys,
+      description: 'Defines the color of the text',
+      table: { type: { summary: 'ColorKey' } },
     },
     children: {
       control: 'text',

@@ -1,7 +1,6 @@
 ---
 description: UI Kit rules for the e-commerce project
-globs:
-  - lib/**/*.{ts,tsx}
+globs: 
 alwaysApply: true
 ---
 
@@ -64,6 +63,7 @@ alwaysApply: true
 - Document important props with JSDoc
 - Keep README.md up to date
 - Provide usage examples in Storybook stories
+- Stories and Documentation are in English
 
 ## Git
 
