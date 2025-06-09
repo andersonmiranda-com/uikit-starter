@@ -2,9 +2,11 @@
 
 ## Foundation
 
+- ✅ Color
+- ✅ Typography
 - ✅ Button
 - 🚧 Heading
-- 🚧 Text
+- ✅ Text
 - 🚧 Container
 - 🚧 Stack
 - 🚧 Grid
