@@ -34,7 +34,7 @@ const FontSample: FC<FontSampleProps> = ({ variant, weightName, weight }) => {
         <Text weight={weight}>
           {weightName} {weight}
         </Text>
-        <Text variant="caption" monospaced className="rounded-sm bg-white p-1 text-neutral-500">
+        <Text variant="caption" monospaced className="rounded-sm bg-white p-1" color="neutral-600">
           {`<Text variant="${variant}" weight="${weight}">Ag</Text>`}
         </Text>
       </div>

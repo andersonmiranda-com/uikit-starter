@@ -1,5 +1,6 @@
 @import 'tailwindcss';
-@source inline("{text,fill,bg,border}-{primary,neutral,secondary,tertiary,info,success,warning,error,white,black,focus,transparent}-{100..900}");
+@source inline("{text,fill,bg,border}-{primary,neutral,secondary,tertiary,info,success,warning,error}-{100..900}");
+@source inline("{text,fill,bg,border}-{white,black,focus,transparent}");
 @plugin 'tailwindcss-react-aria-components';
 
 @theme static {

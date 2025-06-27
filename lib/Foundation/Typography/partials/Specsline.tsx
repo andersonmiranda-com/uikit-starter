@@ -30,10 +30,10 @@ const SpecsLine: FC<SpecsLineProps> = ({
         {label}
       </Text>
       <Text
+        color={monospaced ? 'neutral-600' : undefined}
         className={twMerge(
           'flex items-center border-b border-neutral-300 text-nowrap',
-          variant === 'header' ? 'h-12' : 'h-[64px]',
-          monospaced ? 'text-neutral-500' : undefined
+          variant === 'header' ? 'h-12' : 'h-[64px]'
         )}
         weight={variant === 'header' ? 600 : 400}
         variant={monospaced ? 'caption' : 'body1'}
@@ -42,6 +42,7 @@ const SpecsLine: FC<SpecsLineProps> = ({
         {data1}
       </Text>
       <Text
+        color={monospaced ? 'neutral-600' : undefined}
         className={twMerge(
           'flex items-center border-b border-neutral-300 text-nowrap',
           variant === 'header' ? 'h-12' : 'h-[64px]',

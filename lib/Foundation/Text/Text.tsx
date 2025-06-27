@@ -47,7 +47,7 @@ export const Text: FC<TextProps> = ({
     Element,
     {
       'data-testid': dataTestId,
-      className: twMerge(classes, `text-${color}`),
+      className: twMerge(classes, color ? `text-${color}` : ''),
       ...props,
     },
     children
