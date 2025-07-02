@@ -25,7 +25,7 @@ const meta = {
       options: ['filled', 'outlined', 'flat'],
       description: 'Defines the display mode of the button',
     },
-    isDisabled: {
+    disabled: {
       control: 'boolean',
       description: 'Controls whether the button is disabled',
     },
@@ -33,7 +33,7 @@ const meta = {
       control: 'text',
       description: 'Button content',
     },
-    onPress: {
+    onClick: {
       action: 'pressed',
       description: 'Function called when the button is pressed',
     },
@@ -54,7 +54,7 @@ export const Primary: Story = {
     children: 'Primary',
     variant: 'primary',
     mode: 'filled',
-    onPress: action('primary-clicked'),
+    onClick: action('primary-clicked'),
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -69,7 +69,7 @@ export const Secondary: Story = {
     children: 'Secondary',
     variant: 'secondary',
     mode: 'filled',
-    onPress: action('secondary-clicked'),
+    onClick: action('secondary-clicked'),
   },
 };
 
@@ -78,7 +78,7 @@ export const Tertiary: Story = {
     children: 'Tertiary',
     variant: 'tertiary',
     mode: 'filled',
-    onPress: action('tertiary-clicked'),
+    onClick: action('tertiary-clicked'),
   },
 };
 
@@ -87,7 +87,7 @@ export const Info: Story = {
     children: 'Info',
     variant: 'info',
     mode: 'filled',
-    onPress: action('info-clicked'),
+    onClick: action('info-clicked'),
   },
 };
 
@@ -96,7 +96,7 @@ export const Success: Story = {
     children: 'Success',
     variant: 'success',
     mode: 'filled',
-    onPress: action('success-clicked'),
+    onClick: action('success-clicked'),
   },
 };
 
@@ -105,7 +105,7 @@ export const Warning: Story = {
     children: 'Warning',
     variant: 'warning',
     mode: 'filled',
-    onPress: action('warning-clicked'),
+    onClick: action('warning-clicked'),
   },
 };
 
@@ -114,7 +114,7 @@ export const Error: Story = {
     children: 'Error',
     variant: 'error',
     mode: 'filled',
-    onPress: action('error-clicked'),
+    onClick: action('error-clicked'),
   },
 };
 
@@ -123,7 +123,7 @@ export const Outlined: Story = {
     children: 'Outlined',
     variant: 'primary',
     mode: 'outlined',
-    onPress: action('outlined-clicked'),
+    onClick: action('outlined-clicked'),
   },
 };
 
@@ -132,7 +132,7 @@ export const Flat: Story = {
     children: 'Flat',
     variant: 'primary',
     mode: 'flat',
-    onPress: action('flat-clicked'),
+    onClick: action('flat-clicked'),
   },
 };
 
@@ -141,8 +141,8 @@ export const Disabled: Story = {
     children: 'Disabled',
     variant: 'primary',
     mode: 'filled',
-    isDisabled: true,
-    onPress: action('disabled-clicked'),
+    disabled: true,
+    onClick: action('disabled-clicked'),
   },
 };
 
@@ -152,17 +152,17 @@ export const Sizes: Story = {
     variant: 'primary',
     mode: 'filled',
     size: 'small',
-    onPress: action('size-small-clicked'),
+    onClick: action('size-small-clicked'),
   },
   render: args => (
     <div style={{ display: 'flex', gap: 16 }}>
-      <Button {...args} size="small" onPress={action('size-small-clicked')}>
+      <Button {...args} size="small" onClick={action('size-small-clicked')}>
         Small
       </Button>
-      <Button {...args} size="medium" onPress={action('size-medium-clicked')}>
+      <Button {...args} size="medium" onClick={action('size-medium-clicked')}>
         Medium
       </Button>
-      <Button {...args} size="large" onPress={action('size-large-clicked')}>
+      <Button {...args} size="large" onClick={action('size-large-clicked')}>
         Large
       </Button>
     </div>
@@ -175,7 +175,7 @@ export const Block: Story = {
     block: true,
     variant: 'primary',
     mode: 'filled',
-    onPress: action('block-clicked'),
+    onClick: action('block-clicked'),
   },
   render: args => (
     <div style={{ width: '100%' }}>
