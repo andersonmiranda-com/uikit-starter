@@ -11,7 +11,7 @@ export type ButtonVariant =
   | 'error';
 export type ButtonMode = 'filled' | 'outlined' | 'flat';
 
-export const button = tv({
+export const buttonStyles = tv({
   base: 'items-center justify-center rounded-md transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none',
   variants: {
     size: {

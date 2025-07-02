@@ -18,7 +18,7 @@ export type TextVariant =
 
 export type TextWeight = 400 | 500 | 600 | 700;
 
-export type ElementType =
+export type TextElementType =
   | 'h1'
   | 'h2'
   | 'h3'
@@ -32,7 +32,7 @@ export type ElementType =
   | 'button'
   | 'label';
 
-export const variantToElementMap: Record<TextVariant, ElementType> = {
+export const variantToElementMap: Record<TextVariant, TextElementType> = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
@@ -49,7 +49,7 @@ export const variantToElementMap: Record<TextVariant, ElementType> = {
   caption2: 'span',
 };
 
-export const text = tv({
+export const textStyles = tv({
   base: 'focus',
   variants: {
     variant: {

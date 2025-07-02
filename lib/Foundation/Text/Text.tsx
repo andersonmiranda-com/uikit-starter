@@ -1,12 +1,18 @@
-import { createElement, type FC, type HTMLProps, type ReactNode } from 'react';
-import { text, TextVariant, TextWeight, ElementType, variantToElementMap } from './text.tv';
-import { ColorKey } from '../../utils/types/Colors.type';
+import { createElement, type HTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { type ColorKey } from '../../utils/types/Colors.type';
+import {
+  textStyles,
+  type TextElementType,
+  type TextVariant,
+  type TextWeight,
+  variantToElementMap,
+} from './text.tv';
 
-interface TextProps extends HTMLProps<HTMLElement> {
+export type TextProps = {
+  as?: TextElementType;
   variant?: TextVariant;
   weight?: TextWeight;
-  element?: ElementType;
   color?: ColorKey;
   /**
    * If true, the text will have a monospaced font.
@@ -16,42 +22,30 @@ interface TextProps extends HTMLProps<HTMLElement> {
    *  If true, the the text will fixed at desktop font size, and it will not be responsive.
    */
   fixed?: boolean;
-  children: ReactNode;
-  className?: string;
-  dataTestId?: string;
-}
+} & HTMLAttributes<HTMLElement>;
 
-export const Text: FC<TextProps> = ({
+export const Text = ({
+  as,
   variant = 'body1',
   weight = 400,
-  element,
   color,
-  monospaced = false,
-  fixed = false,
-  children,
+  monospaced,
+  fixed,
   className,
-  dataTestId = 'text-component',
   ...props
-}) => {
-  const Element = element ?? variantToElementMap[variant];
+}: TextProps) => {
+  const Component = as ?? variantToElementMap[variant] ?? 'p';
 
-  const classes = text({
-    variant,
-    weight,
-    fixed,
-    monospaced,
-    className,
+  return createElement(Component, {
+    ...props,
+    className: textStyles({
+      variant,
+      weight,
+      fixed,
+      monospaced,
+      className: twMerge(className, color && `text-${color}`),
+    }),
   });
-
-  return createElement(
-    Element,
-    {
-      'data-testid': dataTestId,
-      className: twMerge(classes, color ? `text-${color}` : ''),
-      ...props,
-    },
-    children
-  );
 };
 
-export type { TextProps, TextVariant, TextWeight, ElementType };
+Text.displayName = 'Text';
