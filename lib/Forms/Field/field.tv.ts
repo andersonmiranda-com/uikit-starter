@@ -17,11 +17,11 @@ export const fieldGroupStyles = tv({
 });
 
 export const fieldLabelStyles = tv({
-  base: 'block text-sm font-medium text-gray-700',
+  base: 'block text-sm font-medium text-neutral-700',
 });
 
 export const fieldDescriptionStyles = tv({
-  base: 'text-sm text-gray-500',
+  base: 'text-sm text-neutral-500',
 });
 
 export const fieldErrorStyles = tv({
