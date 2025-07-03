@@ -7,7 +7,7 @@ interface IStackProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps
   children: React.ReactNode;
 }
 
-const Stack = ({
+export const Stack = ({
   as = 'div',
   children,
   className,
@@ -26,7 +26,5 @@ const Stack = ({
     </Component>
   );
 };
-Stack.displayName = 'Stack';
 
-export { Stack };
-export type { IStackProps };
+Stack.displayName = 'Stack';

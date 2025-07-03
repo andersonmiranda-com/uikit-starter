@@ -69,12 +69,6 @@ alwaysApply: true
 
 ## Accessibility
 
-- Include ARIA attributes when needed
-- Ensure proper color contrast
-- Ensure components are keyboard-navigable
-
-### Accessibility Checklist
-
 | Requirement                  | Description                                                            |
 | ---------------------------- | ---------------------------------------------------------------------- |
 | Semantic HTML tags           | Use appropriate HTML tags for content structure and meaning.           |
