@@ -2,7 +2,7 @@ import type { JSX } from 'react';
 import type { VariantProps } from 'tailwind-variants';
 import { stack } from './stack.tv';
 
-interface IStackProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof stack> {
+interface StackProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof stack> {
   as?: keyof JSX.IntrinsicElements;
   children: React.ReactNode;
 }
@@ -16,7 +16,7 @@ export const Stack = ({
   align,
   justify,
   ...props
-}: IStackProps) => {
+}: StackProps) => {
   const Component = as as any;
   const styles = stack({ direction, spacing, align, justify, className });
 

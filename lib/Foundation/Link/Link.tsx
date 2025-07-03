@@ -8,7 +8,7 @@ type LinkVariant = 'link1' | 'link2' | 'link3';
 // with AnchorHTMLAttributes, keeping only the specific styling props.
 type BaseTextProps = Omit<TextProps, keyof HTMLAttributes<HTMLElement>>;
 
-export interface ILinkProps extends BaseTextProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface LinkProps extends BaseTextProps, AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * The visual variant of the link.
    * @default 'link1'
@@ -21,7 +21,7 @@ export interface ILinkProps extends BaseTextProps, AnchorHTMLAttributes<HTMLAnch
   color?: ColorKey;
 }
 
-export const Link = ({ variant = 'link1', color, ...props }: ILinkProps) => {
+export const Link = ({ variant = 'link1', color, ...props }: LinkProps) => {
   // The `as="a"` prop ensures it renders an anchor tag, while `variant` applies the specific link styles.
   return <Text {...props} as="a" variant={variant} color={color} />;
 };
