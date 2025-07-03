@@ -53,12 +53,12 @@ test('renderiza el botón warning correctamente', () => {
 
 test('renderiza el botón danger correctamente', () => {
   const { getByTestId } = render(
-    <Button variant="danger" data-testid="danger-button">
+    <Button variant="error" data-testid="danger-button">
       Button
     </Button>
   );
   const button = getByTestId('danger-button');
-  expect(button).toHaveClass('bg-red-600');
+  expect(button).toHaveClass('bg-error-500');
 });
 
 test('renderiza el botón outlined correctamente', () => {
@@ -84,7 +84,7 @@ test('renderiza el botón flat correctamente', () => {
 
 test('renderiza el botón deshabilitado correctamente', () => {
   const { getByTestId } = render(
-    <Button isDisabled data-testid="disabled-button">
+    <Button disabled data-testid="disabled-button">
       Button
     </Button>
   );
@@ -96,7 +96,7 @@ test('renderiza el botón deshabilitado correctamente', () => {
 test('responde a eventos de click cuando está habilitado', () => {
   const onPressMock = vi.fn();
   const { getByTestId } = render(
-    <Button onPress={onPressMock} data-testid="clickable-button">
+    <Button onClick={onPressMock} data-testid="clickable-button">
       Click me
     </Button>
   );
@@ -109,7 +109,7 @@ test('responde a eventos de click cuando está habilitado', () => {
 test('no responde a eventos de click cuando está deshabilitado', () => {
   const onPressMock = vi.fn();
   const { getByTestId } = render(
-    <Button onPress={onPressMock} isDisabled data-testid="non-clickable-button">
+    <Button onClick={onPressMock} disabled data-testid="non-clickable-button">
       Click me
     </Button>
   );

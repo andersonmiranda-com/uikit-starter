@@ -1,4 +1,4 @@
-import { forwardRef, createElement, type HTMLAttributes } from 'react';
+import { createElement, type HTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { type ColorKey } from '../../utils/types/Colors.type';
 import {

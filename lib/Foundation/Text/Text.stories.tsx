@@ -154,7 +154,7 @@ export const Fixed: Story = {
 export const CustomElement: Story = {
   args: {
     children: 'Text rendered as <label> element',
-    element: 'label',
+    as: 'label',
     variant: 'body1',
   },
 };
