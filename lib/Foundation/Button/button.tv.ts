@@ -19,24 +19,6 @@ export const buttonStyles = tv({
       medium: 'text-md h-[40px] px-4 font-medium',
       large: 'h-[50px] px-5 text-lg font-medium',
     },
-    variant: {
-      primary: '',
-      secondary: '',
-      tertiary: '',
-      info: '',
-      success: '',
-      warning: '',
-      error: '',
-    },
-    mode: {
-      filled: '',
-      outlined: '',
-      flat: '',
-    },
-    disabled: {
-      true: '',
-      false: '',
-    },
     block: {
       true: 'flex w-full',
       false: 'inline-flex',
