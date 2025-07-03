@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Divider } from './Divider';
 import { Stack } from '../../Layout';
+import { colorKeys } from '../../utils/types/Colors.type';
 
 const meta: Meta<typeof Divider> = {
   title: 'Foundation/Divider',
@@ -12,6 +13,24 @@ const meta: Meta<typeof Divider> = {
         type: 'radio',
         options: ['horizontal', 'vertical'],
       },
+    },
+    thickness: {
+      control: {
+        type: 'select',
+        options: ['hairline', 'thin', 'regular', 'thick'],
+      },
+    },
+    spacing: {
+      control: {
+        type: 'select',
+        options: ['none', 'xs', 'sm', 'md', 'lg'],
+      },
+    },
+    color: {
+      control: 'select',
+      options: colorKeys,
+      description: 'Defines the color of the text',
+      table: { type: { summary: 'ColorKey' } },
     },
   },
 };
@@ -37,6 +56,9 @@ export const Default: Story = {
   ],
   args: {
     orientation: 'horizontal',
+    thickness: 'thin',
+    spacing: 'none',
+    color: 'neutral-200',
   },
 };
 
@@ -52,5 +74,8 @@ export const Vertical: Story = {
   ],
   args: {
     orientation: 'vertical',
+    thickness: 'thin',
+    spacing: 'none',
+    color: 'neutral-200',
   },
 };
