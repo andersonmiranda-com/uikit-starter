@@ -1,10 +1,10 @@
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-export function Slot({
+export const Slot = ({
   children,
   ...props
-}: React.HTMLAttributes<HTMLElement> & { children?: React.ReactNode }) {
+}: React.HTMLAttributes<HTMLElement> & { children?: React.ReactNode }) => {
   if (React.isValidElement(children)) {
     const child = children as React.ReactElement<{
       style?: React.CSSProperties;
@@ -17,4 +17,4 @@ export function Slot({
     });
   }
   return null;
-}
+};

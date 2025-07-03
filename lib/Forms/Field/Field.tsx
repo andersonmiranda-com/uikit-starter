@@ -7,15 +7,19 @@ import {
   fieldInputStyles,
 } from './field.tv';
 
-export function Label({ className, ...props }: LabelHTMLAttributes<HTMLLabelElement>) {
+export const Label = ({ className, ...props }: LabelHTMLAttributes<HTMLLabelElement>) => {
   return <label {...props} className={fieldLabelStyles({ className })} />;
-}
+};
 
-export function Description({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) {
+Label.displayName = 'Label';
+
+export const Description = ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => {
   return <p {...props} className={fieldDescriptionStyles({ className })} />;
-}
+};
 
-export function FieldError({ className, children, ...props }: HTMLAttributes<HTMLSpanElement>) {
+Description.displayName = 'Description';
+
+export const FieldError = ({ className, children, ...props }: HTMLAttributes<HTMLSpanElement>) => {
   if (!children) {
     return null;
   }
@@ -24,18 +28,22 @@ export function FieldError({ className, children, ...props }: HTMLAttributes<HTM
       {children}
     </span>
   );
-}
+};
 
-export function FieldGroup({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
+FieldError.displayName = 'FieldError';
+export const FieldGroup = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
   return <div {...props} className={fieldGroupStyles({ className })} />;
-}
+};
 
+FieldGroup.displayName = 'FieldGroup';
 type InputStatus = 'default' | 'error' | 'warning' | 'valid';
 
-export function Input({
+export const Input = ({
   className,
   status,
   ...props
-}: InputHTMLAttributes<HTMLInputElement> & { status?: InputStatus }) {
+}: InputHTMLAttributes<HTMLInputElement> & { status?: InputStatus }) => {
   return <input {...props} className={fieldInputStyles({ className, status })} />;
-}
+};
+
+Input.displayName = 'Input';

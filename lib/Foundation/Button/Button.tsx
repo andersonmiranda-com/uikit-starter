@@ -32,3 +32,5 @@ export const Button = ({
     />
   );
 };
+
+Button.displayName = 'Button';

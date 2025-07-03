@@ -5,6 +5,8 @@ export type TextVariant =
   | 'h2'
   | 'h3'
   | 'h4'
+  | 'h5'
+  | 'h6'
   | 'subtitle1'
   | 'subtitle2'
   | 'subtitle3'
@@ -37,6 +39,8 @@ export const variantToElementMap: Record<TextVariant, TextElementType> = {
   h2: 'h2',
   h3: 'h3',
   h4: 'h4',
+  h5: 'h5',
+  h6: 'h6',
   subtitle1: 'h2',
   subtitle2: 'h3',
   subtitle3: 'h4',
@@ -57,6 +61,8 @@ export const textStyles = tv({
       h2: 'text-h2-mobile tablet:text-h2',
       h3: 'text-h3-mobile tablet:text-h3',
       h4: 'text-h4-mobile tablet:text-h4',
+      h5: 'text-h5-mobile tablet:text-h5',
+      h6: 'text-h6-mobile tablet:text-h6',
       subtitle1: 'text-subtitle1-mobile tablet:text-subtitle1',
       subtitle2: 'text-subtitle2-mobile tablet:text-subtitle2',
       subtitle3: 'text-subtitle3-mobile tablet:text-subtitle3',
@@ -103,6 +109,16 @@ export const textStyles = tv({
       fixed: true,
       variant: 'h4',
       class: 'text-h4',
+    },
+    {
+      fixed: true,
+      variant: 'h5',
+      class: 'text-h5',
+    },
+    {
+      fixed: true,
+      variant: 'h6',
+      class: 'text-h6',
     },
     {
       fixed: true,

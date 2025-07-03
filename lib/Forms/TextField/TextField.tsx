@@ -13,14 +13,14 @@ export interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElemen
   type?: TextFieldType;
 }
 
-export function TextField({
+export const TextField = ({
   label,
   description,
   errorMessage,
   className,
   status,
   ...props
-}: TextFieldProps) {
+}: TextFieldProps) => {
   const id = useId();
 
   return (
@@ -31,4 +31,6 @@ export function TextField({
       {status === 'error' && <FieldError>{errorMessage}</FieldError>}
     </div>
   );
-}
+};
+
+TextField.displayName = 'TextField';

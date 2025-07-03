@@ -1,16 +1,14 @@
-# 💬 Prompt Library for AI Tools
+## 💬 Prompt Library for AI Tools
 
-## --- Work In Progress ---
+## \--- Work In Progress ---
 
 Below are prompt examples for tools that support text-based or interactive prompt workflows, such as Cursor + MCP.
-
----
 
 ## ✨ Cursor + MCP
 
 ### Basic Button
 
-```
+```plaintext
 Implements a new lib/atoms/Button component with its variants, etc, using React-Aria, create unit tests and stories.
 
 Read component design from this Figma file:
@@ -23,14 +21,12 @@ Read component design from this Figma file:
 
 Check all variants on Figma's component and mention them on the Instruction No. 1 bellow.
 
-![09-variants](./images/09-variants.png)
-
-```
+```plaintext
 Create a new component based on the provided Figma design, strictly following the conventions of the UIKit project.
 
 Definition:
-[FOLDER] = "atoms"                   <<< Put the Folder name here
-[COMPONENT_NAME] = "ButtonGroup"     <<< Put the Component name here
+[FOLDER] = "atoms"                   &lt;&lt;&lt; Put the Folder name here
+[COMPONENT_NAME] = "Button"     &lt;&lt;&lt; Put the Component name here
 
 Instructions:
 
@@ -45,15 +41,12 @@ It is highly recommended to check the component's variants in Figma and mention 
 - Add an index.ts file exporting the component
 - Add an export entry to lib/[FOLDER]/index.ts
 
-3. IMPORTANT: Use React Aria Components (RAC) as the base for implementing the component:
-- Use the corresponding RAC component or React Aria hooks if there is no direct component
-- Prefix imported React Aria components with RAC for clarity
-- Extend the props interfaces from React Aria
+3. IMPORTANTE: Utiliza componentes HTML nativos como base para implementar el componente:
+- Extiende los props originales del elemento HTML correspondiente (por ejemplo, React.ButtonHTMLAttributes para un botón)
+- Asegúrate de que la interfaz de props incluya todas las variantes y comportamientos detectados en el diseño de Figma
 
 4. Define an interface I[COMPONENT_NAME]Props that:
-- Extends the corresponding React Aria interfaces
 - Includes all variants detected in the Figma design
-- Includes an optional 'data-testid' prop with a default value
 - Includes an optional 'className' prop for custom styles
 
 5. Use tailwind-variants (tv) to manage the styles and variants of the component, leveraging the states provided by React Aria through renderProps.
@@ -70,5 +63,4 @@ The provided Figma design will define all specific variants, states, and behavio
 
 Read component design from this Figma file:
 [FIGMA_URL_HERE]
-
 ```

@@ -3,7 +3,6 @@ description: UI Kit rules for the e-commerce project
 globs: 
 alwaysApply: true
 ---
-
 # Rules for the UI Kit Project
 
 ## File Structure
@@ -23,23 +22,13 @@ alwaysApply: true
 
 ## React Components
 
+- Components must be implemented using native HTML elements as the base (e.g., <button>, <input>, <a>, etc.).
+- Extend the original attributes of the corresponding HTML element using React interfaces (e.g., React.ButtonHTMLAttributes for buttons).
+- The props interface must include all variants and behaviors detected in the Figma design.
 - Keep components functional and small
 - Define TypeScript types for all props
 - Document important props using JSDoc
 - For more complex components, create partials in a `partials/` sub-directory
-- Use forwardRef for components that require refs
-
-## React Aria
-
-- Use React Aria Components (RAC) as the base for components (e.g., use RACButton as the base for Button)
-- Extend React Aria prop interfaces (e.g., ButtonProps extends RACButtonProps)
-- Use composeRenderProps to combine custom classes with React Aria states
-- Spread all props into the base React Aria component
-- Leverage renderProps states like isPressed, isFocused, etc.
-- Name imported React Aria components with the RAC prefix for clarity (e.g., Button as RACButton)
-- Follow the implementation guides for each React Aria component
-- Use React Aria hooks to implement accessible behaviors when needed
-- Import React Aria components and hooks selectively to optimize bundle size
 
 ## Styling
 
@@ -84,6 +73,25 @@ alwaysApply: true
 - Ensure proper color contrast
 - Ensure components are keyboard-navigable
 
+### Accessibility Checklist
+
+| Requirement                  | Description                                                            |
+| ---------------------------- | ---------------------------------------------------------------------- |
+| Semantic HTML tags           | Use appropriate HTML tags for content structure and meaning.           |
+| Keyboard navigation          | All functionality must be accessible via keyboard.                     |
+| Focus management             | Focus must be managed properly to facilitate navigation.               |
+| ARIA attributes              | Include ARIA attributes where necessary to enhance accessibility.      |
+| Screen reader support        | The interface must be usable with screen readers.                      |
+| Adequate color contrast      | Ensure sufficient contrast between text and background.                |
+| Visible focus indicators     | Focus indicators must be clear and consistent on all elements.         |
+| Accessible error messages    | Error messages must be clear and announced by assistive technologies.  |
+| Adjustable font size         | Allow users to adjust the font size.                                   |
+| Images with alternative text | All images must have descriptive alternative text.                     |
+| Accessible forms             | Forms must have associated labels and clear descriptions.              |
+| Avoid flashing content       | Do not include flashing or blinking content to prevent epilepsy risks. |
+
+---
+
 ## Performance
 
 - Avoid unnecessary re-renders
@@ -93,8 +101,8 @@ alwaysApply: true
 ## Dependencies
 
 - Use yarn to install dependencies
-- Keep React Aria dependencies up to date
 
 ## Implementations
 
 - Implementations must pass linting
+

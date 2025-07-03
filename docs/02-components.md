@@ -1,51 +1,58 @@
-# Component List
+## Component List
 
-## Foundation
+### Stats Control Icons
 
-- ✅ Color
-- ✅ Typography
+- 🔜 ToDo
+- 🚧 Under Construction
+- ✅ Done
+
+### Feedback
+
+- 🔜 Spinner
+- 🔜 Alert
+- 🔜 Tooltip
+- 🔜 Badge
+
+### Foundation
+
 - ✅ Button
-- 🚧 Heading
+- ✅ Colors
+- 🔜  Divider
+- ✅ Heading
+- 🔜  Icon
+- ✅ Link
 - ✅ Text
-- 🚧 Container
-- 🚧 Stack
-- 🚧 Grid
-- 🚧 Divider
-- 🚧 Icon
+- ✅ Typography
 
-## Forms
+### Layout
 
-- 🚧 Input
-- 🚧 Textarea
-- 🚧 Checkbox
-- 🚧 Radio
-- 🚧 Switch
-- 🚧 Select
-- 🚧 Label
-- 🚧 FormField
+- 🔜  Accordion
+- 🔜  Card
+- 🔜 Container
+- 🔜 Grid
+- 🔜 Skeleton
+- 🔜 Stack
 
-## Feedback
+### Forms
 
-- 🚧 Spinner
-- 🚧 Alert
-- 🚧 Tooltip
-- 🚧 Badge
+- 🔜 Checkbox
+- 🔜 DateField
+- ✅ Form
+- 🔜 Radio
+- 🔜 Select
+- 🔜 Switch
+- 🔜 Textarea
+- ✅ TextField
 
-## Overlay
+### Navigation
 
-- 🚧 Dialog
-- 🚧 Popover
-- 🚧 Drawer
-- 🚧 Toast
+- 🔜 Tabs
+- 🔜 Breadcrumb
+- 🔜 Pagination
 
-## Navigation
+### Overlay
 
-- 🚧 Tabs
-- 🚧 Breadcrumb
-- 🚧 Pagination
-
-## Layout
-
-- 🚧 Card
-- 🚧 Accordion
-- 🚧 Skeleton
+- 🔜 Dialog
+- 🔜 Popover
+- 🔜 Drawer
+- 🔜 Toast
