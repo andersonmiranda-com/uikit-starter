@@ -11,19 +11,6 @@ export const dividerStyles = tv({
       horizontal: 'w-full',
       vertical: 'h-full',
     },
-    thickness: {
-      hairline: '',
-      thin: '',
-      regular: '',
-      thick: '',
-    },
-    spacing: {
-      none: '',
-      xs: '',
-      sm: '',
-      md: '',
-      lg: '',
-    },
   },
   compoundVariants: [
     // Thickness mapping
