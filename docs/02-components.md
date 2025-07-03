@@ -17,21 +17,21 @@
 
 - ✅ Button
 - ✅ Colors
-- 🔜  Divider
+- 🔜 Divider
 - ✅ Heading
-- 🔜  Icon
+- 🔜 Icon
 - ✅ Link
 - ✅ Text
 - ✅ Typography
 
 ### Layout
 
-- 🔜  Accordion
-- 🔜  Card
-- 🔜 Container
-- 🔜 Grid
+- 🔜 Accordion
+- 🔜 Card
+- ✅ Container
+- ✅ Grid
 - 🔜 Skeleton
-- 🔜 Stack
+- ✅ Stack
 
 ### Forms
 
