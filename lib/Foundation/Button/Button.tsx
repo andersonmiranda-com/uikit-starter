@@ -21,7 +21,7 @@ export const Button = ({
     <button
       {...props}
       disabled={disabled}
-      style={{ backgroundColor: 'hotpink' }}
+      style={{ backgroundColor: 'hotpink2' }}
       className={buttonStyles({
         size,
         variant,
