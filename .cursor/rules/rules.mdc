@@ -17,7 +17,7 @@ alwaysApply: true
 
 - Components should use PascalCase (e.g., Button.tsx)
 - Story files should follow the pattern ComponentName.stories.tsx
-- Interfaces should use PascalCase and start with 'I' (e.g., IButtonProps)
+- Interfaces should use PascalCase (e.g., ButtonProps)
 - Variables and functions should use camelCase
 
 ## React Components

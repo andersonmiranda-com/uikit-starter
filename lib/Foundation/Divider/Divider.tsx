@@ -1,7 +1,7 @@
 import { type HTMLAttributes } from 'react';
 import { dividerStyles } from './divider.tv';
 
-export interface IDividerProps extends HTMLAttributes<HTMLDivElement> {
+export interface DividerProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The orientation of the divider.
    * @default 'horizontal'
@@ -9,7 +9,7 @@ export interface IDividerProps extends HTMLAttributes<HTMLDivElement> {
   orientation?: 'horizontal' | 'vertical';
 }
 
-export const Divider = ({ orientation = 'horizontal', className, ...props }: IDividerProps) => {
+export const Divider = ({ orientation = 'horizontal', className, ...props }: DividerProps) => {
   return (
     <div
       {...props}
