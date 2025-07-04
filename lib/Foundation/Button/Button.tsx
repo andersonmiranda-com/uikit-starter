@@ -17,8 +17,6 @@ export const Button = ({
   disabled,
   ...props
 }: ButtonProps) => {
-  console.log(size, variant, mode, block, disabled, className);
-
   return (
     <button
       {...props}
