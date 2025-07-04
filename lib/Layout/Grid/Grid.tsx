@@ -14,12 +14,13 @@ type ResponsiveProp<T> =
 type JustifyAlign = 'start' | 'center' | 'end' | 'stretch';
 type Gap = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export interface IGridProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   columns?: ResponsiveProp<number>;
   gap?: Gap;
   align?: JustifyAlign;
   justify?: JustifyAlign;
+  ref?: React.Ref<HTMLDivElement>;
 }
 
 const getResponsiveClasses = (prop: ResponsiveProp<number> | undefined) => {
@@ -63,9 +64,9 @@ export const Grid = ({
   gap = 'md',
   align = 'stretch',
   justify = 'start',
-  ref,
+  ref: gridRef,
   ...props
-}: IGridProps & { ref?: React.Ref<HTMLDivElement> }) => {
+}: GridProps) => {
   const classes = twMerge(
     'grid',
     getResponsiveClasses(columns),
@@ -76,7 +77,7 @@ export const Grid = ({
   );
 
   return (
-    <div className={classes} ref={ref} {...props}>
+    <div className={classes} ref={gridRef} {...props}>
       {children}
     </div>
   );

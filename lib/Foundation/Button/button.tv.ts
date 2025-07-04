@@ -14,11 +14,6 @@ export type ButtonMode = 'filled' | 'outlined' | 'flat';
 export const buttonStyles = tv({
   base: 'items-center justify-center rounded-md transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none',
   variants: {
-    size: {
-      small: 'h-[30px] px-3 text-sm font-medium',
-      medium: 'text-md h-[40px] px-4 font-medium',
-      large: 'h-[50px] px-5 text-lg font-medium',
-    },
     variant: {
       primary: '',
       secondary: '',
@@ -33,13 +28,17 @@ export const buttonStyles = tv({
       outlined: '',
       flat: '',
     },
-    disabled: {
-      true: '',
-      false: '',
+    size: {
+      small: 'h-[30px] px-3 text-sm font-medium',
+      medium: 'text-md h-[40px] px-4 font-medium',
+      large: 'h-[50px] px-5 text-lg font-medium',
     },
     block: {
       true: 'flex w-full',
       false: 'inline-flex',
+    },
+    disabled: {
+      true: 'disabled:cursor-not-allowed',
     },
   },
   compoundVariants: [
@@ -181,6 +180,5 @@ export const buttonStyles = tv({
     size: 'small',
     variant: 'primary',
     mode: 'filled',
-    disabled: false,
   },
 });
