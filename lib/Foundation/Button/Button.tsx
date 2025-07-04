@@ -17,6 +17,8 @@ export const Button = ({
   disabled,
   ...props
 }: ButtonProps) => {
+  console.log(size);
+
   return (
     <button
       {...props}
