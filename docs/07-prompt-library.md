@@ -22,45 +22,66 @@ Read component design from this Figma file:
 Check all variants on Figma's component and mention them on the Instruction No. 1 bellow.
 
 ```plaintext
-Create a new component based on the provided Figma design, strictly following the conventions of the UIKit project.
+Create a new component based on the provided Figma design, strictly following the conventions of the UI Kit project.
 
 Definition:
-[FOLDER] = "atoms"                   &lt;&lt;&lt; Put the Folder name here
-[COMPONENT_NAME] = "Button"     &lt;&lt;&lt; Put the Component name here
+[FOLDER] = "atoms"
+[COMPONENT_NAME] = "Button"
+
+Tech Context:
+
+- Use **React 19** and ensure the component is compatible with the new React Compiler.
+- Use **Tailwind CSS 4.1** with CSS-first configuration.
+- All theme tokens (colors, spacing, font, sizes) must be referenced via CSS custom properties using the `@theme` directive.
+- Do NOT use tailwind.config.js. Instead, rely on `@theme` and design tokens defined in `main.css`.
+
+Apply the latest best practices from both React 19 and Tailwind 4.1 in your implementation.
+
 
 Instructions:
 
-1. Analyze the Figma design to identify all variants (Sizes, Type, Shape, Mode, State), properties, and behaviors of the component.
+1. Analyze the Figma design to identify **all variants** (e.g., Size, Type, Shape, Mode, State), props, and behaviors.
 
-It is highly recommended to check the component's variants in Figma and mention them in the instructions.**
-
-2. Implement the component in lib/[FOLDER]/[COMPONENT_NAME]/ following the structure of three files:
+2. Implement the component in `lib/[FOLDER]/[COMPONENT_NAME]/` following this structure:
 - [COMPONENT_NAME].tsx
 - [COMPONENT_NAME].stories.tsx
 - [COMPONENT_NAME].spec.tsx
-- Add an index.ts file exporting the component
-- Add an export entry to lib/[FOLDER]/index.ts
+- index.ts (local export)
+- Add export to lib/[FOLDER]/index.ts
 
-3. IMPORTANTE: Utiliza componentes HTML nativos como base para implementar el componente:
-- Extiende los props originales del elemento HTML correspondiente (por ejemplo, React.ButtonHTMLAttributes para un botón)
-- Asegúrate de que la interfaz de props incluya todas las variantes y comportamientos detectados en el diseño de Figma
+3. Use native HTML elements as base. For example, use `<button>` and extend `React.ButtonHTMLAttributes<HTMLButtonElement>`. Do NOT use third-party UI abstractions like React Aria or Radix.
 
-4. Define an interface I[COMPONENT_NAME]Props that:
-- Includes all variants detected in the Figma design
-- Includes an optional 'className' prop for custom styles
+4. Guarantee accessibility by:
+- Using correct semantic elements (e.g. `<button>`)
+- Supporting keyboard interactions (`Enter`, `Space`, `Tab`)
+- Providing appropriate `aria-*` attributes only when needed
+- Managing focus manually if necessary (e.g. modals, menus)
 
-5. Use tailwind-variants (tv) to manage the styles and variants of the component, leveraging the states provided by React Aria through renderProps.
+5. Define `I[COMPONENT_NAME]Props` interface that:
+- Includes all detected variants as optional props
+- Extends appropriate React.*HTMLAttributes
+- Accepts `className` for additional styling
 
-6. Colors: Use Tailwind class names (e.g., bg-primary, text-secondary) for known color styles. Convert hex values into Tailwind class names using color definitions from main.css. Avoid inline hex values whenever possible.
+6. Use `tailwind-variants` (tv) to manage variants and state styles:
+- Avoid inline styles
+- Provide `defaultVariants`
+- Reference colors as `bg-[color-token]`, where tokens are defined in `main.css`.
+- Avoid hardcoded Tailwind values (e.g. `bg-[#FF0000]`).
 
-7. Write complete unit tests that utilize data-testid to verify rendering and behavior.
+7. Use color classes defined in design tokens or Tailwind config (e.g., `bg-primary`, `text-secondary`). Convert HEX values from Figma to Tailwind classes using the config in `main.css`.
 
-8. Follow the same conventions as existing components (Button, LinkButton, Textbox), especially regarding integration with React Aria.
+8. Write complete unit tests:
+- Use `@testing-library/react` and `vitest`
+- Use `data-testid` for assertions
+- Cover rendering and behavior for all variants and states
 
-9. Use rules and good practices from .cursor/rules file
+9. Write a full Storybook story in English:
+- Show all variants and states
+- Add documentation via MDX or JSDoc
 
-The provided Figma design will define all specific variants, states, and behaviors that you need to implement according to the capabilities of React Aria.
+10. Follow all conventions and rules defined in `.cursor/rules`
 
 Read component design from this Figma file:
 [FIGMA_URL_HERE]
+
 ```

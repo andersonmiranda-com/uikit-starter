@@ -1,8 +1,9 @@
 ---
 description: UI Kit rules for the e-commerce project
-globs: 
+globs:
 alwaysApply: true
 ---
+
 # Rules for the UI Kit Project
 
 ## File Structure
@@ -69,20 +70,22 @@ alwaysApply: true
 
 ## Accessibility
 
-| Requirement                  | Description                                                            |
-| ---------------------------- | ---------------------------------------------------------------------- |
-| Semantic HTML tags           | Use appropriate HTML tags for content structure and meaning.           |
-| Keyboard navigation          | All functionality must be accessible via keyboard.                     |
-| Focus management             | Focus must be managed properly to facilitate navigation.               |
-| ARIA attributes              | Include ARIA attributes where necessary to enhance accessibility.      |
-| Screen reader support        | The interface must be usable with screen readers.                      |
-| Adequate color contrast      | Ensure sufficient contrast between text and background.                |
-| Visible focus indicators     | Focus indicators must be clear and consistent on all elements.         |
-| Accessible error messages    | Error messages must be clear and announced by assistive technologies.  |
-| Adjustable font size         | Allow users to adjust the font size.                                   |
-| Images with alternative text | All images must have descriptive alternative text.                     |
-| Accessible forms             | Forms must have associated labels and clear descriptions.              |
-| Avoid flashing content       | Do not include flashing or blinking content to prevent epilepsy risks. |
+The design system must offer accessible components. We follow a native-first philosophy using semantic HTML and progressive enhancement where needed.
+
+| Requirement             | Description                                                                   |
+| ----------------------- | ----------------------------------------------------------------------------- |
+| Native elements         | Always prefer `<button>`, `<a>`, `<input>`, etc. for semantic correctness.    |
+| Keyboard navigation     | All components must be fully operable via keyboard (`Tab`, `Enter`, `Space`). |
+| Focus management        | Manage focus explicitly on modals, drawers, and toasts when needed.           |
+| ARIA attributes         | Use only when necessary to expose dynamic states or relationships.            |
+| Screen reader support   | Ensure components are understandable with screen readers.                     |
+| Color contrast          | Follow WCAG guidelines for contrast ratios.                                   |
+| Focus indicators        | Show visible focus using consistent Tailwind focus utilities.                 |
+| Error messages          | Must be programmatically associated and announced when needed.                |
+| Labels and descriptions | Use `<label>`, `aria-labelledby`, and `aria-describedby` properly.            |
+| Alternative text        | Provide `alt` for images and `aria-label` for icon-only buttons.              |
+| Accessible roles        | Use roles (`dialog`, `menu`, etc.) only when enhancing behavior.              |
+| No flashing content     | Avoid flashing or blinking content.                                           |
 
 ---
 
@@ -99,4 +102,3 @@ alwaysApply: true
 ## Implementations
 
 - Implementations must pass linting
-
