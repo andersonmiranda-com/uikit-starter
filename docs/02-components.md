@@ -30,7 +30,7 @@
 - 🔜 Card
 - ✅ Container
 - ✅ Grid
-- 🔜 Skeleton
+- ✅ Skeleton
 - ✅ Stack
 
 ### Forms
