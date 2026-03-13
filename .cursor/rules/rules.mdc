@@ -36,6 +36,7 @@ alwaysApply: true
 - Use Tailwind CSS for styling
 - Keep Tailwind classes organized and reusable
 - Use tailwind-variants (tv) to manage component states and variants
+- Define tv configurations in separate `.tv.ts` files
 - Define custom variants that complement React Aria functionality
 - Use utilities like focusRing for a consistent user experience
 - Provide default variant values using defaultVariants in tv()
