@@ -1,5 +1,5 @@
 import { Text, type TextProps } from '../Text';
-import { TextVariant } from '../Text/text.tv';
+import { TextVariant } from '../Text/text.styles';
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 

@@ -1,6 +1,6 @@
 import { useId, type InputHTMLAttributes } from 'react';
 import { Description, FieldError, Input, Label } from '../Field/Field';
-import { textfieldStyles } from './textfield.tv';
+import { textfieldStyles } from './textfield.styles';
 
 type TextFieldStatus = 'default' | 'error' | 'warning' | 'valid';
 type TextFieldType = 'text' | 'email' | 'password' | 'number';

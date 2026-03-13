@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Container } from './Container';
 import { Stack } from '../Stack';
 import { Text } from '../../Foundation/Text';
-import { container } from './container.tv';
+import { container } from './container.styles';
 
 const meta: Meta<typeof Container> = {
   title: 'Layout/Container',

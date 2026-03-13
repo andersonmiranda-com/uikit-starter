@@ -1,39 +1,49 @@
-import { type InputHTMLAttributes, type LabelHTMLAttributes, type HTMLAttributes } from 'react';
+import { forwardRef, type HTMLAttributes, type InputHTMLAttributes, type LabelHTMLAttributes } from 'react';
 import {
   fieldGroupStyles,
   fieldLabelStyles,
   fieldDescriptionStyles,
   fieldErrorStyles,
   fieldInputStyles,
-} from './field.tv';
+} from './field.styles';
 
-export const Label = ({ className, ...props }: LabelHTMLAttributes<HTMLLabelElement>) => {
-  return <label {...props} className={fieldLabelStyles({ className })} />;
-};
+export const Label = forwardRef<HTMLLabelElement, LabelHTMLAttributes<HTMLLabelElement>>(
+  ({ className, ...props }, ref) => {
+    return <label {...props} ref={ref} className={fieldLabelStyles({ className })} />;
+  }
+);
 
 Label.displayName = 'Label';
 
-export const Description = ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => {
-  return <p {...props} className={fieldDescriptionStyles({ className })} />;
-};
+export const Description = forwardRef<
+  HTMLParagraphElement,
+  HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => {
+  return <p {...props} ref={ref} className={fieldDescriptionStyles({ className })} />;
+});
 
 Description.displayName = 'Description';
 
-export const FieldError = ({ className, children, ...props }: HTMLAttributes<HTMLSpanElement>) => {
-  if (!children) {
-    return null;
+export const FieldError = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(
+  ({ className, children, ...props }, ref) => {
+    if (!children) {
+      return null;
+    }
+    return (
+      <span {...props} ref={ref} className={fieldErrorStyles({ className })}>
+        {children}
+      </span>
+    );
   }
-  return (
-    <span {...props} className={fieldErrorStyles({ className })}>
-      {children}
-    </span>
-  );
-};
+);
 
 FieldError.displayName = 'FieldError';
-export const FieldGroup = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
-  return <div {...props} className={fieldGroupStyles({ className })} />;
-};
+
+export const FieldGroup = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    return <div {...props} ref={ref} className={fieldGroupStyles({ className })} />;
+  }
+);
 
 FieldGroup.displayName = 'FieldGroup';
 type InputStatus = 'default' | 'error' | 'warning' | 'valid';

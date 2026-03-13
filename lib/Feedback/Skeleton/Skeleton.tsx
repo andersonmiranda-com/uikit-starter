@@ -1,5 +1,5 @@
 import React from 'react';
-import { skeleton, type SkeletonVariants } from './skeleton.tv';
+import { skeleton, type SkeletonVariants } from './skeleton.styles';
 
 export interface SkeletonProps
   extends React.HTMLAttributes<HTMLDivElement>,

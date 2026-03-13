@@ -1,5 +1,4 @@
-import { createElement, type HTMLAttributes } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { createElement, forwardRef, type HTMLAttributes } from 'react';
 import { type ColorKey } from '../../utils/types/Colors.type';
 import {
   textStyles,
@@ -7,7 +6,7 @@ import {
   type TextVariant,
   type TextWeight,
   variantToElementMap,
-} from './text.tv';
+} from './text.styles';
 
 export type TextProps = {
   as?: TextElementType;
@@ -24,28 +23,22 @@ export type TextProps = {
   fixed?: boolean;
 } & HTMLAttributes<HTMLElement>;
 
-export const Text = ({
-  as,
-  variant = 'body1',
-  weight = 400,
-  color,
-  monospaced,
-  fixed,
-  className,
-  ...props
-}: TextProps) => {
-  const Component = as ?? variantToElementMap[variant] ?? 'p';
+export const Text = forwardRef<HTMLElement, TextProps>(
+  ({ as, variant = 'body1', weight = 400, color, monospaced, fixed, className, ...props }, ref) => {
+    const Component = as ?? variantToElementMap[variant] ?? 'p';
 
-  return createElement(Component, {
-    ...props,
-    className: textStyles({
-      variant,
-      weight,
-      fixed,
-      monospaced,
-      className: twMerge(className, color && `text-${color}`),
-    }),
-  });
-};
+    return createElement(Component, {
+      ...props,
+      ref,
+      className: textStyles({
+        variant,
+        weight,
+        fixed,
+        monospaced,
+        className: [className, color && `text-${color}`].filter(Boolean).join(' '),
+      }),
+    });
+  }
+);
 
 Text.displayName = 'Text';

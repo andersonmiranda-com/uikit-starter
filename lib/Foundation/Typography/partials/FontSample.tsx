@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import { TextVariant, TextWeight } from '../../Text/text.tv';
+import { TextVariant, TextWeight } from '../../Text/text.styles';
 import { Text } from '../../Text';
 
 interface FontSampleProps {
