@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './Button';
 import { action } from 'storybook/actions';
-import { expect, userEvent } from '@storybook/test';
-import { within } from '@storybook/test';
+import { expect, userEvent, within } from '@storybook/test';
 
 const meta = {
   component: Button,
@@ -10,20 +9,25 @@ const meta = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'An accessible and reusable button with multiple variants and states.',
+        component:
+          'An accessible and reusable button with shadcn-compatible variants and sizes.',
       },
     },
   },
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'tertiary', 'info', 'success', 'warning', 'error'],
+      options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'],
       description: 'Defines the visual style of the button',
     },
-    mode: {
-      control: 'radio',
-      options: ['filled', 'outlined', 'flat'],
-      description: 'Defines the display mode of the button',
+    size: {
+      control: 'select',
+      options: ['default', 'sm', 'lg', 'icon'],
+      description: 'Defines the size of the button',
+    },
+    block: {
+      control: 'boolean',
+      description: 'If true, the button will take the full width of its container',
     },
     disabled: {
       control: 'boolean',
@@ -37,11 +41,6 @@ const meta = {
       action: 'pressed',
       description: 'Function called when the button is pressed',
     },
-    size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
-      description: 'Defines the size of the button',
-    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof Button>;
@@ -49,18 +48,33 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
-    children: 'Primary',
-    variant: 'primary',
-    mode: 'filled',
-    onClick: action('primary-clicked'),
+    children: 'Default',
+    variant: 'default',
+    onClick: action('default-clicked'),
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const button = canvas.getByRole('button', { name: 'Primary' });
+    const button = canvas.getByRole('button', { name: 'Default' });
     expect(button).toBeInTheDocument();
     await userEvent.click(button);
+  },
+};
+
+export const Destructive: Story = {
+  args: {
+    children: 'Destructive',
+    variant: 'destructive',
+    onClick: action('destructive-clicked'),
+  },
+};
+
+export const Outline: Story = {
+  args: {
+    children: 'Outline',
+    variant: 'outline',
+    onClick: action('outline-clicked'),
   },
 };
 
@@ -68,79 +82,30 @@ export const Secondary: Story = {
   args: {
     children: 'Secondary',
     variant: 'secondary',
-    mode: 'filled',
     onClick: action('secondary-clicked'),
   },
 };
 
-export const Tertiary: Story = {
+export const Ghost: Story = {
   args: {
-    children: 'Tertiary',
-    variant: 'tertiary',
-    mode: 'filled',
-    onClick: action('tertiary-clicked'),
+    children: 'Ghost',
+    variant: 'ghost',
+    onClick: action('ghost-clicked'),
   },
 };
 
-export const Info: Story = {
+export const LinkVariant: Story = {
   args: {
-    children: 'Info',
-    variant: 'info',
-    mode: 'filled',
-    onClick: action('info-clicked'),
-  },
-};
-
-export const Success: Story = {
-  args: {
-    children: 'Success',
-    variant: 'success',
-    mode: 'filled',
-    onClick: action('success-clicked'),
-  },
-};
-
-export const Warning: Story = {
-  args: {
-    children: 'Warning',
-    variant: 'warning',
-    mode: 'filled',
-    onClick: action('warning-clicked'),
-  },
-};
-
-export const Error: Story = {
-  args: {
-    children: 'Error',
-    variant: 'error',
-    mode: 'filled',
-    onClick: action('error-clicked'),
-  },
-};
-
-export const Outlined: Story = {
-  args: {
-    children: 'Outlined',
-    variant: 'primary',
-    mode: 'outlined',
-    onClick: action('outlined-clicked'),
-  },
-};
-
-export const Flat: Story = {
-  args: {
-    children: 'Flat',
-    variant: 'primary',
-    mode: 'flat',
-    onClick: action('flat-clicked'),
+    children: 'Link',
+    variant: 'link',
+    onClick: action('link-clicked'),
   },
 };
 
 export const Disabled: Story = {
   args: {
     children: 'Disabled',
-    variant: 'primary',
-    mode: 'filled',
+    variant: 'default',
     disabled: true,
     onClick: action('disabled-clicked'),
   },
@@ -149,21 +114,23 @@ export const Disabled: Story = {
 export const Sizes: Story = {
   args: {
     children: 'Button',
-    variant: 'primary',
-    mode: 'filled',
-    size: 'small',
-    onClick: action('size-small-clicked'),
+    variant: 'default',
+    size: 'default',
+    onClick: action('size-default-clicked'),
   },
   render: args => (
     <div style={{ display: 'flex', gap: 16 }}>
-      <Button {...args} size="small" onClick={action('size-small-clicked')}>
+      <Button {...args} size="sm" onClick={action('size-sm-clicked')}>
         Small
       </Button>
-      <Button {...args} size="medium" onClick={action('size-medium-clicked')}>
-        Medium
+      <Button {...args} size="default" onClick={action('size-default-clicked')}>
+        Default
       </Button>
-      <Button {...args} size="large" onClick={action('size-large-clicked')}>
+      <Button {...args} size="lg" onClick={action('size-lg-clicked')}>
         Large
+      </Button>
+      <Button {...args} size="icon" aria-label="Icon button" onClick={action('size-icon-clicked')}>
+        ☺
       </Button>
     </div>
   ),
@@ -173,8 +140,7 @@ export const Block: Story = {
   args: {
     children: 'Block Button',
     block: true,
-    variant: 'primary',
-    mode: 'filled',
+    variant: 'default',
     onClick: action('block-clicked'),
   },
   render: args => (
@@ -182,4 +148,16 @@ export const Block: Story = {
       <Button {...args} />
     </div>
   ),
+};
+
+export const AsChild: Story = {
+  args: {
+    asChild: true,
+    variant: 'link',
+    children: (
+      <a href="https://example.com" target="_blank" rel="noreferrer">
+        Link as child
+      </a>
+    ),
+  },
 };

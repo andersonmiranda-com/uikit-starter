@@ -1,5 +1,4 @@
-import { createElement, type HTMLAttributes } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { createElement, type HTMLAttributes, type Ref } from 'react';
 import { type ColorKey } from '../../utils/types/Colors.type';
 import {
   textStyles,
@@ -7,24 +6,25 @@ import {
   type TextVariant,
   type TextWeight,
   variantToElementMap,
-} from './text.tv';
+} from './text.styles';
 
 export type TextProps = {
   as?: TextElementType;
   variant?: TextVariant;
   weight?: TextWeight;
   color?: ColorKey;
+  ref?: Ref<HTMLElement>;
   /**
    * If true, the text will have a monospaced font.
    */
   monospaced?: boolean;
   /**
-   *  If true, the the text will fixed at desktop font size, and it will not be responsive.
+   * If true, the text will be fixed at desktop font size and will not be responsive.
    */
   fixed?: boolean;
 } & HTMLAttributes<HTMLElement>;
 
-export const Text = ({
+export function Text({
   as,
   variant = 'body1',
   weight = 400,
@@ -32,20 +32,22 @@ export const Text = ({
   monospaced,
   fixed,
   className,
+  ref,
   ...props
-}: TextProps) => {
+}: TextProps) {
   const Component = as ?? variantToElementMap[variant] ?? 'p';
 
   return createElement(Component, {
     ...props,
+    ref,
     className: textStyles({
       variant,
       weight,
       fixed,
       monospaced,
-      className: twMerge(className, color && `text-${color}`),
+      className: [className, color && `text-${color}`].filter(Boolean).join(' '),
     }),
   });
-};
+}
 
 Text.displayName = 'Text';

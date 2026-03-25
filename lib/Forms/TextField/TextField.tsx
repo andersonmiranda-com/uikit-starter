@@ -1,36 +1,39 @@
-import { useId, type InputHTMLAttributes } from 'react';
+import { useId, type InputHTMLAttributes, type Ref } from 'react';
 import { Description, FieldError, Input, Label } from '../Field/Field';
-import { textfieldStyles } from './textfield.tv';
+import { textfieldStyles } from './textfield.styles';
 
 type TextFieldStatus = 'default' | 'error' | 'warning' | 'valid';
 type TextFieldType = 'text' | 'email' | 'password' | 'number';
 
-export interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
+export interface TextFieldProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label?: string;
   description?: string;
   errorMessage?: string;
   status?: TextFieldStatus;
   type?: TextFieldType;
+  ref?: Ref<HTMLInputElement>;
 }
 
-export const TextField = ({
+export function TextField({
   label,
   description,
   errorMessage,
   className,
   status,
+  ref,
   ...props
-}: TextFieldProps) => {
+}: TextFieldProps) {
   const id = useId();
 
   return (
     <div className={textfieldStyles({ className })}>
       {label && <Label htmlFor={id}>{label}</Label>}
-      <Input id={id} {...props} status={status} />
+      <Input id={id} ref={ref} {...props} status={status} />
       {description && <Description>{description}</Description>}
       {status === 'error' && <FieldError>{errorMessage}</FieldError>}
     </div>
   );
-};
+}
 
 TextField.displayName = 'TextField';

@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 import { Unstyled } from '@storybook/addon-docs/blocks';
 
-import { type TextVariant, type TextWeight } from '../../Text/text.tv';
+import { type TextVariant, type TextWeight } from '../../Text/text.styles';
 
 import TextSampleSection from './TextSampleSection';
 import TypographyGrid from './TypographyGrid';

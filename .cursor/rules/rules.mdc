@@ -36,11 +36,21 @@ alwaysApply: true
 - Use Tailwind CSS for styling
 - Keep Tailwind classes organized and reusable
 - Use tailwind-variants (tv) to manage component states and variants
-- Define tv configurations in separate `.tv.ts` files
-- Define custom variants that complement React Aria functionality
+- Define tv configurations in separate `.styles.ts` files (e.g. `button.styles.ts`)
+- Define custom variants that complement accessibility best practices (focus, error states, disabled, etc.)
 - Use utilities like focusRing for a consistent user experience
 - Provide default variant values using defaultVariants in tv()
 - Avoid inline styles
+
+### Shadcn-style component pattern
+
+- Components that expose visual variants (e.g. `Button`) must:
+  - Define their variants in a dedicated `.styles.ts` file using `tv({ base, variants, defaultVariants })`.
+  - Use `VariantProps<typeof componentStyles>` in the component props to inherit variant types.
+  - Extend the corresponding native HTML attributes (e.g. `ButtonHTMLAttributes<HTMLButtonElement>`).
+  - Accept `ref` as a prop (React 19+); do not use `forwardRef`.
+  - Use the shared `Slot` utility with an `asChild?: boolean` prop when composition with custom elements is required.
+  - For buttons, default the `type` prop to `"button"` when it is not explicitly provided.
 
 ## Testing
 

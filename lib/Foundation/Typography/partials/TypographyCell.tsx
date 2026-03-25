@@ -1,6 +1,6 @@
 import { type FC, useEffect, useState } from 'react';
 
-import { TextVariant, variantToElementMap } from '../../Text/text.tv';
+import { TextVariant, variantToElementMap } from '../../Text/text.styles';
 
 import FontSample from './FontSample';
 import SpecsLine from './Specsline';

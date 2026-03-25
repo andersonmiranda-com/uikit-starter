@@ -1,14 +1,15 @@
-import { type HTMLAttributes } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
 import {
   dividerStyles,
   type DividerOrientation,
   type DividerSpacing,
   type DividerThickness,
-} from './divider.tv';
+} from './divider.styles';
 import type { ColorKey } from '../../utils/types/Colors.type';
 import { twMerge } from 'tailwind-merge';
 
 export interface DividerProps extends HTMLAttributes<HTMLElement> {
+  ref?: Ref<HTMLElement>;
   /**
    * The orientation of the divider.
    * @default 'horizontal'
@@ -31,14 +32,15 @@ export interface DividerProps extends HTMLAttributes<HTMLElement> {
   color?: ColorKey;
 }
 
-export const Divider = ({
+export function Divider({
   orientation = 'horizontal',
   thickness = 'thin',
   spacing = 'none',
   color = 'neutral-200',
   className,
+  ref,
   ...props
-}: DividerProps) => {
+}: DividerProps) {
   const colorClass = twMerge(className, color && `bg-${color}`);
   const combinedClassName = dividerStyles({
     orientation,
@@ -53,11 +55,12 @@ export const Divider = ({
   return (
     <Element
       {...props}
+      ref={ref as never}
       role="separator"
       aria-orientation={ariaOrientation}
       className={combinedClassName}
     />
   );
-};
+}
 
 Divider.displayName = 'Divider';

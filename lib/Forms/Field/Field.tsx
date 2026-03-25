@@ -1,49 +1,75 @@
-import { type InputHTMLAttributes, type LabelHTMLAttributes, type HTMLAttributes } from 'react';
+import type {
+  HTMLAttributes,
+  InputHTMLAttributes,
+  LabelHTMLAttributes,
+  Ref,
+} from 'react';
 import {
   fieldGroupStyles,
   fieldLabelStyles,
   fieldDescriptionStyles,
   fieldErrorStyles,
   fieldInputStyles,
-} from './field.tv';
+  type FieldInputVariants,
+} from './field.styles';
 
-export const Label = ({ className, ...props }: LabelHTMLAttributes<HTMLLabelElement>) => {
-  return <label {...props} className={fieldLabelStyles({ className })} />;
-};
+export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+  ref?: Ref<HTMLLabelElement>;
+}
+
+export function Label({ className, ref, ...props }: LabelProps) {
+  return <label {...props} ref={ref} className={fieldLabelStyles({ className })} />;
+}
 
 Label.displayName = 'Label';
 
-export const Description = ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => {
-  return <p {...props} className={fieldDescriptionStyles({ className })} />;
-};
+export interface DescriptionProps extends HTMLAttributes<HTMLParagraphElement> {
+  ref?: Ref<HTMLParagraphElement>;
+}
+
+export function Description({ className, ref, ...props }: DescriptionProps) {
+  return <p {...props} ref={ref} className={fieldDescriptionStyles({ className })} />;
+}
 
 Description.displayName = 'Description';
 
-export const FieldError = ({ className, children, ...props }: HTMLAttributes<HTMLSpanElement>) => {
+export interface FieldErrorProps extends HTMLAttributes<HTMLSpanElement> {
+  ref?: Ref<HTMLSpanElement>;
+}
+
+export function FieldError({ className, children, ref, ...props }: FieldErrorProps) {
   if (!children) {
     return null;
   }
   return (
-    <span {...props} className={fieldErrorStyles({ className })}>
+    <span {...props} ref={ref} className={fieldErrorStyles({ className })}>
       {children}
     </span>
   );
-};
+}
 
 FieldError.displayName = 'FieldError';
-export const FieldGroup = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
-  return <div {...props} className={fieldGroupStyles({ className })} />;
-};
+
+export interface FieldGroupProps extends HTMLAttributes<HTMLDivElement> {
+  ref?: Ref<HTMLDivElement>;
+}
+
+export function FieldGroup({ className, ref, ...props }: FieldGroupProps) {
+  return <div {...props} ref={ref} className={fieldGroupStyles({ className })} />;
+}
 
 FieldGroup.displayName = 'FieldGroup';
-type InputStatus = 'default' | 'error' | 'warning' | 'valid';
 
-export const Input = ({
-  className,
-  status,
-  ...props
-}: InputHTMLAttributes<HTMLInputElement> & { status?: InputStatus }) => {
-  return <input {...props} className={fieldInputStyles({ className, status })} />;
-};
+export interface InputProps
+  extends InputHTMLAttributes<HTMLInputElement>,
+    FieldInputVariants {
+  ref?: Ref<HTMLInputElement>;
+}
+
+export function Input({ className, status, ref, ...props }: InputProps) {
+  return (
+    <input {...props} ref={ref} className={fieldInputStyles({ className, status })} />
+  );
+}
 
 Input.displayName = 'Input';

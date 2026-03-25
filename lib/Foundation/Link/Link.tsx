@@ -1,29 +1,42 @@
-import type { AnchorHTMLAttributes, HTMLAttributes } from 'react';
+import type { AnchorHTMLAttributes, Ref } from 'react';
 import type { ColorKey } from '../../utils/types/Colors.type';
-import { Text, type TextProps } from '../Text';
+import type { LinkVariants } from './link.styles';
+import { Slot } from '../../utils/Slot';
+import { linkStyles } from './link.styles';
+import { Text } from '../Text';
 
-type LinkVariant = 'link1' | 'link2' | 'link3';
-
-// Exclude standard HTML attributes from TextProps to avoid conflicts
-// with AnchorHTMLAttributes, keeping only the specific styling props.
-type BaseTextProps = Omit<TextProps, keyof HTMLAttributes<HTMLElement>>;
-
-export interface LinkProps extends BaseTextProps, AnchorHTMLAttributes<HTMLAnchorElement> {
-  /**
-   * The visual variant of the link.
-   * @default 'link1'
-   */
-  variant?: LinkVariant;
+export interface LinkProps
+  extends AnchorHTMLAttributes<HTMLAnchorElement>,
+    LinkVariants {
+  asChild?: boolean;
+  ref?: Ref<HTMLAnchorElement>;
   /**
    * The color of the text. Must be a valid color from the design system.
-   * This overrides the default HTML 'color' attribute type.
    */
   color?: ColorKey;
 }
 
-export const Link = ({ variant = 'link1', color, ...props }: LinkProps) => {
-  // The `as="a"` prop ensures it renders an anchor tag, while `variant` applies the specific link styles.
-  return <Text {...props} as="a" variant={variant} color={color} />;
-};
+export function Link({
+  asChild = false,
+  className,
+  variant,
+  disabled,
+  color,
+  ref,
+  ...props
+}: LinkProps) {
+  const Component = asChild ? Slot : 'a';
+
+  return (
+    <Text
+      as={Component as 'a'}
+      ref={ref as Ref<HTMLElement>}
+      className={linkStyles({ variant, disabled, className })}
+      aria-disabled={disabled || undefined}
+      color={color}
+      {...props}
+    />
+  );
+}
 
 Link.displayName = 'Link';

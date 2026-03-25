@@ -1,36 +1,40 @@
-import { type ButtonHTMLAttributes } from 'react';
-import { ButtonMode, ButtonSize, ButtonVariant, buttonStyles } from './button.tv';
+import type { ButtonHTMLAttributes, Ref } from 'react';
+import type { VariantProps } from 'tailwind-variants';
+import { Slot } from '../../utils/Slot';
+import { buttonStyles } from './button.styles';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: ButtonSize;
-  variant?: ButtonVariant;
-  mode?: ButtonMode;
-  block?: boolean;
+export interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonStyles> {
+  asChild?: boolean;
+  ref?: Ref<HTMLButtonElement>;
 }
 
-export const Button = ({
+export function Button({
   size,
   variant,
-  mode,
   className,
   block,
-  disabled,
+  asChild = false,
+  type,
+  ref,
   ...props
-}: ButtonProps) => {
+}: ButtonProps) {
+  const Component = asChild ? Slot : 'button';
+
   return (
-    <button
+    <Component
       {...props}
-      disabled={disabled}
+      type={type ?? 'button'}
+      ref={ref}
       className={buttonStyles({
         size,
         variant,
-        mode,
         block,
-        disabled,
         className,
       })}
     />
   );
-};
+}
 
 Button.displayName = 'Button';

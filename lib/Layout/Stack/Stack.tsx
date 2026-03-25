@@ -1,13 +1,16 @@
-import type { JSX } from 'react';
+import type { JSX, Ref } from 'react';
 import type { VariantProps } from 'tailwind-variants';
-import { stack } from './stack.tv';
+import { stack } from './stack.styles';
 
-interface StackProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof stack> {
+export interface StackProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof stack> {
   as?: keyof JSX.IntrinsicElements;
   children: React.ReactNode;
+  ref?: Ref<HTMLElement>;
 }
 
-export const Stack = ({
+export function Stack({
   as = 'div',
   children,
   className,
@@ -15,16 +18,17 @@ export const Stack = ({
   spacing,
   align,
   justify,
+  ref,
   ...props
-}: StackProps) => {
-  const Component = as as any;
+}: StackProps) {
+  const Component = as as 'div';
   const styles = stack({ direction, spacing, align, justify, className });
 
   return (
-    <Component className={styles} {...props}>
+    <Component ref={ref as Ref<HTMLDivElement>} className={styles} {...props}>
       {children}
     </Component>
   );
-};
+}
 
 Stack.displayName = 'Stack';
