@@ -1,4 +1,4 @@
-import { tv } from 'tailwind-variants';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 export const fieldGroupStyles = tv({
   base: [
@@ -30,10 +30,9 @@ export const fieldErrorStyles = tv({
 
 export const fieldInputStyles = tv({
   base: [
-    'w-full rounded-md border-2 bg-transparent p-2',
-    'border-neutral-200',
-    'focus:border-primary-500 focus:ring-primary-500',
-    'disabled:cursor-not-allowed disabled:border-neutral-200 disabled:bg-neutral-100',
+    'flex h-9 w-full rounded-md border border-neutral-200 bg-transparent px-3 py-2 text-sm',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2',
+    'disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-neutral-100',
   ],
   variants: {
     status: {
@@ -44,3 +43,5 @@ export const fieldInputStyles = tv({
     },
   },
 });
+
+export type FieldInputVariants = VariantProps<typeof fieldInputStyles>;

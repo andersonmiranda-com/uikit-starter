@@ -48,7 +48,7 @@ alwaysApply: true
   - Define their variants in a dedicated `.styles.ts` file using `tv({ base, variants, defaultVariants })`.
   - Use `VariantProps<typeof componentStyles>` in the component props to inherit variant types.
   - Extend the corresponding native HTML attributes (e.g. `ButtonHTMLAttributes<HTMLButtonElement>`).
-  - Prefer `forwardRef` for ref forwarding.
+  - Accept `ref` as a prop (React 19+); do not use `forwardRef`.
   - Use the shared `Slot` utility with an `asChild?: boolean` prop when composition with custom elements is required.
   - For buttons, default the `type` prop to `"button"` when it is not explicitly provided.
 

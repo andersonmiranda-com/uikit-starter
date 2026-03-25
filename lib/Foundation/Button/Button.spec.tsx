@@ -47,7 +47,7 @@ test('renders the ghost button correctly', () => {
     </Button>
   );
   const button = screen.getByTestId('ghost-button');
-  expect(button).toHaveClass('hover:bg-neutral-100', 'text-neutral-900');
+  expect(button).toHaveClass('hover:bg-neutral-200', 'text-neutral-900');
 });
 
 test('renders the link button correctly', () => {

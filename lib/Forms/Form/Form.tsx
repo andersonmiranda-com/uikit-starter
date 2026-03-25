@@ -1,10 +1,12 @@
-import { forwardRef, type FormHTMLAttributes } from 'react';
+import type { FormHTMLAttributes, Ref } from 'react';
 import { formStyles } from './form.styles';
 
-export const Form = forwardRef<HTMLFormElement, FormHTMLAttributes<HTMLFormElement>>(
-  ({ className, ...props }, ref) => {
-    return <form {...props} ref={ref} className={formStyles({ className })} />;
-  }
-);
+export interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
+  ref?: Ref<HTMLFormElement>;
+}
+
+export function Form({ className, ref, ...props }: FormProps) {
+  return <form {...props} ref={ref} className={formStyles({ className })} />;
+}
 
 Form.displayName = 'Form';

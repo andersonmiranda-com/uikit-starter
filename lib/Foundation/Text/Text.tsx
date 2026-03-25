@@ -1,4 +1,4 @@
-import { createElement, forwardRef, type HTMLAttributes } from 'react';
+import { createElement, type HTMLAttributes, type Ref } from 'react';
 import { type ColorKey } from '../../utils/types/Colors.type';
 import {
   textStyles,
@@ -13,32 +13,41 @@ export type TextProps = {
   variant?: TextVariant;
   weight?: TextWeight;
   color?: ColorKey;
+  ref?: Ref<HTMLElement>;
   /**
    * If true, the text will have a monospaced font.
    */
   monospaced?: boolean;
   /**
-   *  If true, the the text will fixed at desktop font size, and it will not be responsive.
+   * If true, the text will be fixed at desktop font size and will not be responsive.
    */
   fixed?: boolean;
 } & HTMLAttributes<HTMLElement>;
 
-export const Text = forwardRef<HTMLElement, TextProps>(
-  ({ as, variant = 'body1', weight = 400, color, monospaced, fixed, className, ...props }, ref) => {
-    const Component = as ?? variantToElementMap[variant] ?? 'p';
+export function Text({
+  as,
+  variant = 'body1',
+  weight = 400,
+  color,
+  monospaced,
+  fixed,
+  className,
+  ref,
+  ...props
+}: TextProps) {
+  const Component = as ?? variantToElementMap[variant] ?? 'p';
 
-    return createElement(Component, {
-      ...props,
-      ref,
-      className: textStyles({
-        variant,
-        weight,
-        fixed,
-        monospaced,
-        className: [className, color && `text-${color}`].filter(Boolean).join(' '),
-      }),
-    });
-  }
-);
+  return createElement(Component, {
+    ...props,
+    ref,
+    className: textStyles({
+      variant,
+      weight,
+      fixed,
+      monospaced,
+      className: [className, color && `text-${color}`].filter(Boolean).join(' '),
+    }),
+  });
+}
 
 Text.displayName = 'Text';
